@@ -3,12 +3,21 @@
 {% block head %}User Registration{% endblock %}
 {% block content %}
 
-    <form method="post" class="post_method" action=".">{% csrf_token %}
-        <table border="0">
-            {{ form.as_table }}
-        </table>
-        <button type="submit" value="Register">Register</button>
-        <button type="button" onclick="window.location.href='/' ">Login</button>
-    </form>
- {% endblock %}
- <script src="home.js"></script>
+    <div class="row">
+    	<div class="col-sm-6 col-md-4 col-md-offset-4">
+    		          <div class="account-wall">
+
+    		<form method="post" class="post_method" action=".">{% csrf_token %}
+
+		    	<table border="0">
+		        	{{ form.as_table }}
+		    	</table>
+
+		    	<button class="btn btn-lg btn-success btn-block" type="submit" value="Register">Register</button>
+		    	<button class="btn btn-lg btn-primary btn-block" type="button" onclick="window.location.href='/' ">Back</button>
+
+    		</form>
+    	</div>	
+</div>
+</div>
+{% endblock %}

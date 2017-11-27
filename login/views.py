@@ -55,15 +55,15 @@ def home(request):
     )
 
 
-def currentUsers(request):
-    users_list = Session.objects.filter(expire_date__gte = timezone.now())
-    users_id_list = []
-    for user in users_list:
-        info = user.get_decoded()
-        users_id_list.append(info.get('_auth_user_id', None))
-    context = {users_id_list}
+# def currentUsers(request):
+#     users_list = Session.objects.filter(expire_date__gte = timezone.now())
+#     users_id_list = []
+#     for user in users_list:
+#         info = user.get_decoded()
+#         users_id_list.append(info.get('_auth_user_id', None))
+#     context = {users_id_list}
 
-    return render(request, 'home.html', context)
+#     return render(request, 'home.html', context)
 
 
 
