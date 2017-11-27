@@ -7,11 +7,14 @@
     {% endif %}
 
     <form class="form" method="post" action="." >{% csrf_token %}
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputText" class="sr-only">Username</label>
         <input type="text" placeholder="Username" name="username">
+        <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" placeholder="Password" name="password">
-        <button type="submit"  value="Login" id="login-button">Login</button>
-        <button type="button" onclick="window.location.href='/register/' ">Register</button>
+        <button class="btn btn-lg btn-default" type="submit"  value="Login" id="login-button">Login</button>
+        <button class="btn btn-lg btn-default" type="button" value="Register" onclick="window.location.href='/register/' ">Register</button>
         <input type="hidden" name="next" value="/home" />
     </form>
-
+    
 {% endblock %}

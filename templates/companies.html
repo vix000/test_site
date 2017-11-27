@@ -1,0 +1,48 @@
+  {% extends "base.html" %}
+  {% load staticfiles %}
+  {% block js %}
+      {{ block.super }}
+  {% endblock %}
+  {% block title %}Companies{% endblock %}
+  {% block content %}
+      <button type="button" class="btn btn-default" onclick="window.location.href='/home/' ">Back</button>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+      <div class="container">
+        <section class="Companies">
+          <table id="myTable" class=" table order-list">
+            <thead>
+              <tr>
+                <td>Company name</td>
+                <td>E-mail</td>
+                <td>Phone number</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-sm-4">
+                  <input type="text" name="name" class="form-control" placeholder="Example: Fresh Fruits B.V." />
+                </td>
+                <td class="col-sm-4">
+                  <input type="mail" name="mail"  class="form-control" placeholder="example@gmail.com" />
+                </td>
+                <td class="col-sm-2">
+                  <input type="number" name="phone"  class="form-control" placeholder="123-456-789" />
+                </td>
+                <td class="col-sm-2"><a class="deleteRow"></a>
+
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td class="addRowToTable" colspan="5">
+                  <input type="button" class="btn btn-md btn-block " id="addrow" value="Add Row" />
+                </td>
+              </tr>
+              <tr>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+{% endblock %}

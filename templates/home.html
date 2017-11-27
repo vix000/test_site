@@ -1,7 +1,26 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-{% block title %}Home page{% endblock %}
-{% block content %}
-    <h1> Welcome {{ user.username }} !!! </h1>
-    <button type="button" onclick="window.location.href='/logout/' ">Logout</button>
-{% endblock %}
+  {% extends "base.html" %}
+  {% load staticfiles %}
+  {% block js %}
+      {{ block.super }}
+  {% endblock %}
+  {% block title %}Home page{% endblock %}
+  {% block content %}
+      <h1> Welcome {{ user.username }} !!! </h1>
+      <button type="button" class="btn btn-default" onclick="window.location.href='/logout/' ">Logout</button>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+
+      <div class="container">
+        <section>
+          <h3>Here you can browse companies
+        <button class="btn btn-md btn-block" onclick="window.location.href='/companies/' ">Companies</button>
+        </section>
+        <section>
+          <h3>Here you can browse users</h2>
+            {{ user }}
+        </section>
+      </div>
+
+
+  {% endblock %}
+
