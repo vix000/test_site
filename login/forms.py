@@ -1,6 +1,7 @@
 import re
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserChangeForm
 from django.utils.translation import ugettext_lazy as _
  
 class RegistrationForm(forms.Form):
@@ -27,3 +28,16 @@ class RegistrationForm(forms.Form):
 # class MyForm(forms.Form):
 #     myfield = forms.CharField(widget=forms.TextInput(attrs={
 #         'class' : 'form-input'}))
+
+
+class EditProfileForm(UserChangeForm):
+
+    class Meta:
+        model = User
+        fields = (
+            'email',
+            'username',
+            'password',
+            )
+        #one of them /\ \/
+        #exclude = ()

@@ -28,5 +28,4 @@ urlpatterns = [
     url(r'^logout/$', auth_views.login),
     url(r'companies/$', myapp_views.companies),
     url(r'users/$', myapp_views.currentUsers),
-
 ]

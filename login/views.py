@@ -12,6 +12,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
+from login.forms import RegistrationForm, EditProfileForm
  
 @csrf_protect
 def register(request):
@@ -64,6 +65,26 @@ def home(request):
 #     context = {users_id_list}
 
 #     return render(request, 'home.html', context)
+
+
+def view_profile(request):
+    args = {'user': request.user}
+    return render(request, '/user.html', args)
+
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance = request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('/users')
+
+    else:
+        form = EditProfileForm(instance = request.user)
+        args = {'form': form}
+        return render(request, '/users.html', args)
+
+
 
 
 

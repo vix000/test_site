@@ -3,11 +3,20 @@
   {% block js %}
       {{ block.super }}
   {% endblock %}
-  {% block title %}Companies{% endblock %}
+  {% block head %}
+  <title>Users</title>{% endblock %}
+  {% block title %}Users{% endblock %}
   {% block content %}
-
-
      	<button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/home/' ">Previous page</button>
+
+     	<div class="container">
+     		<form method="post">
+     			{% csrf_token %}
+     			{{ form.as_p }}
+     			<button type="submit">Submit</button>
+     		</form>
+     		<br />
+     	</div>
 
 
 {% endblock %}
