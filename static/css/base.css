@@ -1,8 +1,13 @@
-#bg{
+#bg {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 00;
+
     background-size: 1500px 900px;
     background-repeat: no-repeat;
     background-position: top;
     background-attachment: fixed;
+    overflow-x: hidden;
+    height: 100%;
 }
 
 .form-signin
@@ -16,7 +21,6 @@
     text-align: center;
     color: #ffffff;
     font-size: 40px;
-    font-weight: 700;
 }
 
 .form-signin .form-signin-heading, .form-signin
@@ -76,4 +80,71 @@
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
+}
+
+.errMsg {
+    text-align: center;
+    color: #ff0000;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+.homeInfo {
+    color: #ffffff;
+}
+
+.button-box {
+   text-align:center;
+   margin-top:20px;
+}
+
+.MyForm {
+    color: red;
+}
+
+.rightPos {
+    text-align: right;
+}
+
+.jumbotron-transparent {
+   background: rgba(0,0,0,0)!important;
+}
+
+.jumbotron-transparent-a {
+    background: rgba(0,0,0,0)!important;
+}
+
+.form-control {
+    background: rgba(0,0,0,0.2)!important;
+    border: none!important;
+    box-shadow: none!important;
+    color: white!important;
+}
+
+.form-control:hover {
+    background: rgba(0,0,0,0.4)!important;
+}
+
+.form-control::placeholder {
+    color: white!important;
+}
+
+.regThanks {
+    text-align: center;
+    margin-top: 100px;
+    color: #ffffff;
+}
+
+header {
+    color: #ffffff;
+}
+
+
+img {
+    height:250px;
+    width:100%;
+}
+
+#slider .item {
+    height: 400px;
 }

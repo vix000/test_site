@@ -6,7 +6,15 @@
 {% block title %}Companies{% endblock %}
 {% block content %}
 
-	<button type="button" class="btn btn-default" onclick="window.location.href='/home/' ">Previous page</button>
+<style>
+  .form-control {
+    background: rgba(0,0,0,0)!important;
+  }
+</style>
+
+
+<div class="row">
+	<button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/home/' ">Previous page</button>
   <section class="Companies">
     <table id="myTable" class=" table order-list">
       <thead>
@@ -34,7 +42,7 @@
       <tfoot>
         <tr>
           <td class="addRowToTable" colspan="5">
-            <input type="button" class="btn btn-md btn-block " id="addrow" value="Add Row" />
+            <input type="button" class="btn btn-lg btn-success" id="addrow" value="Add Row" />
           </td>
         </tr>
         <tr>
@@ -42,5 +50,5 @@
       </tfoot>
     </table>
   </section>
-
+</div>
 {% endblock %}

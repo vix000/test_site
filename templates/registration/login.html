@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% block title %}Login page{% endblock %}
 {% block head %}Login{% endblock %}
-{% block content %}
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+{% block content %}}
 {% load static %} 
 
 
                 <h1 class="text-center login-title">CRM System</h1><br />
                 <img class="profile-img" src="https://d2xvgh02jbj6qq.cloudfront.net/assets/profile-image-default-f9489173dc9fd17abb4b0b3aadad40086606f585716879c04c5d46f1ca685941.png"
                 alt="">
+                {% if form.errors %}
+                    <p class="errMsg">Your username and password didn't match. Please try again.</p>
+                {% endif %}
 
                 <form class="form-signin" method="post" action="." >{% csrf_token %}
                     <h2 class="form-signin-heading">Welcome!</h2>

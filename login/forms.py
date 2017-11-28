@@ -1,4 +1,3 @@
-#forms.py
 import re
 from django import forms
 from django.contrib.auth.models import User
@@ -9,7 +8,7 @@ class RegistrationForm(forms.Form):
     username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs=dict(required=True, max_length=30, placeholder="jan_kowalski")), label=_("Username"), error_messages={ 'invalid': _("Only letters, numbers and undescores avaiable.") })
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(required=True, max_length=30, placeholder="example@gmail.com")), label=_("Email address"))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Password"))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, size=2, max_length=30, render_value=False)), label=_("Password (again)"))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Password (again)"))
  
     def clean_username(self):
         try:
@@ -24,3 +23,7 @@ class RegistrationForm(forms.Form):
                 raise forms.ValidationError(_("Password's didn't match"))
         return self.cleaned_data
 
+
+# class MyForm(forms.Form):
+#     myfield = forms.CharField(widget=forms.TextInput(attrs={
+#         'class' : 'form-input'}))
