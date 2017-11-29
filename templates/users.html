@@ -7,16 +7,21 @@
   <title>Users</title>{% endblock %}
   {% block title %}Users{% endblock %}
   {% block content %}
-     	<button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/home/' ">Previous page</button>
 
-     	<div class="container">
-     		<form method="post">
-     			{% csrf_token %}
-     			{{ form.as_p }}
-     			<button type="submit">Submit</button>
-     		</form>
-     		<br />
-     	</div>
-
+  	
+ 	<div class="container" style="color: white;">
+ 		<button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/home/' ">Previous page</button>
+ 		<div class="row">
+ 			<div class="col-md-8 col-md-offset-2">
+	     		<h1>Your profile:</h1> <br />
+	 			<p>Username: {{ user.username }}</p>
+	 			<p>E-mail address: {{ user.email }}</p>
+	 			<p>Created: {{user.date_joined}}</p>
+	 			<br />
+	 			<div class="btn btn-lg btn-primary" onclick="window.location.href='/users/edit_profile' ">
+	 			Edit profile</div>
+	 		</div>
+	 	</div>
+	</div>
 
 {% endblock %}

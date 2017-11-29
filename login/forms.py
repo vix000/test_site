@@ -25,19 +25,13 @@ class RegistrationForm(forms.Form):
         return self.cleaned_data
 
 
-# class MyForm(forms.Form):
-#     myfield = forms.CharField(widget=forms.TextInput(attrs={
-#         'class' : 'form-input'}))
-
-
 class EditProfileForm(UserChangeForm):
 
-    class Meta:
+    #fill or exclude = in fill gives selected, in exclude excludes selected
+    class Meta: #it specifies the metadata for the form itself
         model = User
         fields = (
-            'email',
             'username',
-            'password',
-            )
-        #one of them /\ \/
-        #exclude = ()
+            'email',
+            'password' #had to ad the password so that submitting changes would work
+            )  

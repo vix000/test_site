@@ -3,19 +3,23 @@
 {% block title %}User Registration{% endblock %}
 {% block head %}User Registration{% endblock %}
 {% block content %}
+
         <div class="jumbotron jumbotron-transparent">
-                <div class="container">
-                    <div class="row">
-    		<div class="account-wall">
-        		<form method="post" class="post_method" action=".">{% csrf_token %}
-    		    	<table border="0">
-    		        	{{ form|crispy }}
-    		    	</table>
-    		    	<button class="btn btn-lg btn-success" type="submit" value="Register">Register</button>
-    		    	<button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='/' ">Back</button>
-        		</form>
+            <div class="container">
+                <div class="row">
+    		      <div class="account-wall">
+        		      <form method="post" class="post_method" action=".">{% csrf_token %}
+
+        		    	  <table border="0">
+        		              <span class="formHeaderStyle">{{ form|crispy }}</span>
+        		    	  </table>
+
+        		    	  <button class="btn btn-lg btn-success" type="submit" value="Register">Register</button>
+        		    	  <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='/' ">Back</button>
+        		      </form>
+                  </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+
 {% endblock %}

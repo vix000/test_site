@@ -1,7 +1,6 @@
 #bg {
     font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 00;
-
+    font-size: 18px;
     background-size: 1500px 900px;
     background-repeat: no-repeat;
     background-position: top;
@@ -17,10 +16,10 @@
     margin: 0 auto;
 }
 
-.form-signin h2 {
+.form-signin h3 {
     text-align: center;
     color: #ffffff;
-    font-size: 40px;
+    font-size: 32px;
 }
 
 .form-signin .form-signin-heading, .form-signin
@@ -31,6 +30,7 @@
 {
     font-weight: normal;
 }
+
 .form-signin .form-control
 {
     position: relative;
@@ -66,10 +66,11 @@
 .login-title
 {
     color: #ffffff;
-    font-size: 36px;
+    font-size: 50px;
     font-weight: 400;
     display: block;
 }
+
 .profile-img
 {
     color: #337ab7;
@@ -136,22 +137,24 @@
     color: #ffffff;
 }
 
+.styledTitles {
+    color: #ffffff!important;
+}
+
 header {
     color: #ffffff;
 }
-
 
 img {
     height:250px;
     width:100%;
 }
 
-
 /*transiton, transform*/
 
 input, button
 {
-    transition: all 0.3s ease-in-out!important;
+    transition: all 0.4s ease-in-out!important;
 }
 
 input:hover
@@ -169,12 +172,13 @@ input:hover
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .body {
   background-color: #333333;
 }
-
 
 .img-responsive{
     opacity: 0;
@@ -183,4 +187,45 @@ input:hover
 
 .carousel-control.left, .carousel-control.right {
     background-image: none!important;
+}
+
+
+.inputClass {
+    color: #000000;
+    margin-top: 5px;
+}
+
+.helptext {
+    visibility: hidden;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.hidePwd {
+    visibility: hidden;
+}
+
+.editProfileInput {
+    color: #ffffff;
+}
+
+.homeHeader {
+    font-size: 1px;
+}
+
+.formHeaderStyle {
+    color: #ffffff;
+}
+
+.carousel-caption {
+    top: 56%;
+    transform: translateY(-50%);
+    bottom: initial;
+}
+
+.carouselTextHeader {
+    font-size: 36px;
 }

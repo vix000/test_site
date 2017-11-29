@@ -1,0 +1,32 @@
+  {% extends "base.html" %}
+  {% load staticfiles %}
+  {% block js %}
+      {{ block.super }}
+  {% endblock %}
+
+  {% block title %}Edit profile{% endblock %}
+  {% block content %}
+
+  	
+     	<div class="container">
+        <button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/users/' ">Previous page</button>
+        <section>
+          <div class="row">
+            <div class="col-md-6 col-md-offset-2">
+              <form method="post">
+                {% load widget_tweaks %}
+                {% csrf_token %} <!--it is going to be submitted with the data so i can authenticate-->
+                <br />
+                <span class="editProfileInput">Username:</span>
+                <p>{% render_field form.username class+="form-control" %}</p>
+                <span class="editProfileInput">E-mail:</span>
+                <p>{% render_field form.email class+="form-control" %}</p>
+                <button type="submit" class="btn btn-lg btn-success">Submit</button>
+                <button type="button" class="btn btn-lg btn-info" onclick="window.location.href='/users/change-password' ">Change password</button>
+              </form>
+            </div>
+       	  </div>
+      </section>
+    </div>
+
+{% endblock %}

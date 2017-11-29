@@ -1,18 +1,22 @@
-from django.shortcuts import render
-
 # Create your views here.
 #views.py
 from login.forms import *
+from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth import logout
+from django.contrib.auth import update_session_auth_hash # to remain logged in after changing password
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from login.forms import RegistrationForm, EditProfileForm
+from login.forms import (
+    RegistrationForm,
+    EditProfileForm,
+)
  
 @csrf_protect
 def register(request):
@@ -55,37 +59,35 @@ def home(request):
     { 'user': request.user }
     )
 
-
-# def currentUsers(request):
-#     users_list = Session.objects.filter(expire_date__gte = timezone.now())
-#     users_id_list = []
-#     for user in users_list:
-#         info = user.get_decoded()
-#         users_id_list.append(info.get('_auth_user_id', None))
-#     context = {users_id_list}
-
-#     return render(request, 'home.html', context)
-
-
 def view_profile(request):
     args = {'user': request.user}
-    return render(request, '/user.html', args)
+    return render(request, 'users.html', args)
 
 def edit_profile(request):
     if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance = request.user)
+        form = EditProfileForm(request.POST, instance=request.user)
 
         if form.is_valid():
             form.save()
             return redirect('/users')
 
     else:
-        form = EditProfileForm(instance = request.user)
-        args = {'form': form}
-        return render(request, '/users.html', args)
+        form = EditProfileForm(instance=request.user)
+        args={'form': form}
+        return render(request, 'edit_profile.html', args)
 
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
 
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('/users')
+        else:
+            return redirect('/change-password')  #if form.is_valid() == False -> if user inputted wrong data
 
-
-
-
+    else:
+        form = PasswordChangeForm(user=request.user)
+        args={'form': form}
+        return render(request, 'change_password.html', args)

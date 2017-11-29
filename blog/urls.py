@@ -27,5 +27,7 @@ urlpatterns = [
     url(r'^accounts/login/$', auth_views.login),
     url(r'^logout/$', auth_views.login),
     url(r'companies/$', myapp_views.companies),
-    url(r'users/$', myapp_views.currentUsers),
+    url(r'users/$', myapp_views.view_profile, name="view_profile"),
+    url(r'edit_profile/$', myapp_views.edit_profile, name="edit_profile"),
+    url(r'change-password/$', myapp_views.change_password, name="change_password"),
 ]

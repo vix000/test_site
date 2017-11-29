@@ -8,8 +8,8 @@
 
   <header class="header">
       <div class="row" id="homeRow">
-       <button type="button" class="btn btn-md btn-danger" onclick="window.location.href='/logout/' ">Logout</button>
-        <h3 id="whoIsLoggedIn">Logged as:  {{ user.username }}</h3>
+       <button type="button" class="btn btn-sm btn-danger" onclick="window.location.href='/logout/' ">Logout</button>
+       <h3 id="whoIsLoggedIn">Username:  {{ user.username }}</h3>
       </div>
   </header>
 
@@ -27,15 +27,15 @@
                   <div class="item active">
                     <img src="{% static 'images/empty.png' %}" class="img-responsive" alt="Users icon">
                       <div class="carousel-caption">
-                          <button class="btn btn-md btn-lg btn-primary" onclick="window.location.href='/companies/' ">Companies</button> <br /><br />
-                          <p>Add, delete and browse</p>
+                          <p><span class="carouselTextHeader">Companies</span></p>
+                          <button class="btn btn-md btn-md btn-primary" onclick="window.location.href='/companies/' ">Add or delete</button> <br /><br />
                       </div>
                   </div>
                   <div class="item">
                     <img src="{% static 'images/empty.png' %}" class="img-responsive" alt="Users icon">
                       <div class="carousel-caption">
-                          <button class="btn btn-md btn-lg btn-primary" onclick="window.location.href='/users/' ">Users</button> <br /><br />
-                          <p>Inspect registered users of the system</p>
+                          <p><span class="carouselTextHeader">Users</span></p>
+                          <button class="btn btn-md btn-md btn-primary" onclick="window.location.href='/users/' ">Manage user profile</button> <br /><br />
                       </div>
                   </div>
               </div>
