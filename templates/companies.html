@@ -1,56 +1,63 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-{% block js %}
-    {{ block.super }}
-{% endblock %}
-{% block title %}Companies{% endblock %}
-{% block content %}
+  {% extends "base.html" %}
+  {% load staticfiles %}
+  {% load crispy_forms_tags %}
+  {% block js %}
+      {{ block.super }}
+  {% endblock %}
+  {% block title %}Companies{% endblock %}
+  {% block content %}
 
-<style>
-  .form-control {
-    background: rgba(0,0,0,0)!important;
-  }
-</style>
-
-<section>
-  <div class="row">
-  	<button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/home/' ">Previous page</button> <br /><br /><br />
-    <section class="Companies">
-      <table id="myTable" class=" table order-list">
-        <thead>
-          <tr>
-            <td><span class="styledTitles">Company name</span></td>
-            <td><span class="styledTitles">E-mail</span></td>
-            <td><span class="styledTitles">Phone number</span></td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="col-sm-4">
-              <input type="text" name="name" class="form-control" placeholder="Example: Fresh Fruits B.V." />
-            </td>
-            <td class="col-sm-4">
-              <input type="mail" name="mail"  class="form-control" placeholder="example@gmail.com" />
-            </td>
-            <td class="col-sm-2">
-              <input type="number" name="phone"  class="form-control" placeholder="123-456-789" />
-            </td>
-            <td class="col-sm-2"><a class="deleteRow"></a>
-            </td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <div class="col-6">
-              <td class="addRowToTable" colspan="5">
-                <input type="button" class="btn btn-lg btn-success" id="addrow" value="Add Row" />
-              </td>
+  <div class="container">
+    <button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/home/' ">Previous page</button>
+    <article>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+          <form method="post">
+            {% csrf_token %}
+            <div class="formHeaderStyle">
+              <header>
+                <h1>Companies</h1>
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-lg btn-success">Add</button>
+              </header>
+              <section>
+                {% for post in posts %}
+                  <h3>{{ post.post }}</h3>
+                  <p>Added by: {{ post.user }} on {{ post.created }}</p>
+                {% endfor %}
+              </section>
             </div>
-          </tr>
-        </tfoot>
-      </table>
-    </section>
+          </form>
+        </div>
+      </div>
+    </article>
   </div>
-</section>
 
+
+<!--   <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <form method="post">
+          {% csrf_token %}
+          <div class="formHeaderStyle">
+            <button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/home/' ">Previous page</button>
+            <h1>Companies</h1>
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-lg btn-success">Submit</button>
+            {% for post in posts %}
+              <h3>{{ post.post }}</h3>
+              <p>Submitted by: {{ post.user }} on {{ post.created }}</p>
+            {% endfor %}
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <h1>All users</h1>
+        {% for user in users%}
+          <a href=""><h3>{{  user.username }}</h3></a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+ -->
 {% endblock %}

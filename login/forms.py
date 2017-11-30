@@ -1,5 +1,6 @@
 import re
 from django import forms
+from login.models import Post
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 from django.utils.translation import ugettext_lazy as _
@@ -35,3 +36,13 @@ class EditProfileForm(UserChangeForm):
             'email',
             'password' #had to ad the password so that submitting changes would work
             )  
+
+
+
+
+class CompaniesForm(forms.ModelForm):
+    post = forms.CharField()
+
+    class Meta:
+        model = Post
+        fields = ('post',)

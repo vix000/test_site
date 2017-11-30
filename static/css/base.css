@@ -216,9 +216,10 @@ input:hover
     font-size: 1px;
 }
 
-.formHeaderStyle {
+/*.formHeaderStyle {
     color: #ffffff;
-}
+    border-radius: 5%;
+}*/
 
 .carousel-caption {
     top: 56%;
@@ -228,4 +229,37 @@ input:hover
 
 .carouselTextHeader {
     font-size: 36px;
+}
+
+input.form-control {
+    background-color: #fff !important;
+    color: #333 !important;
+}
+
+.formHeaderStyle {
+    color: #ffffff;
+    background: rgba(0,0,0,0.8);
+    padding: 30px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.socialHeader {
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+}
+
+.socialHeader:hover {
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none!important;
+}
+
+.headerInfo {
+    font-style: italic;
+    font-size: 14px;
 }

@@ -1,6 +1,10 @@
 # Create your views here.
 #views.py
 from login.forms import *
+
+from login.models import Post, Friend
+from django.views.generic import TemplateView
+from .forms import CompaniesForm
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -16,6 +20,7 @@ from django.template import RequestContext
 from login.forms import (
     RegistrationForm,
     EditProfileForm,
+    CompaniesForm,
 )
  
 @csrf_protect
@@ -45,9 +50,6 @@ def logout_page(request):
     logout(request)
     return render(request, '/')
  
-def companies(request):
-    return render(request,
-     'companies.html',)
 
 def currentUsers(request):
     return render(request, 'users.html')
@@ -59,8 +61,15 @@ def home(request):
     { 'user': request.user }
     )
 
-def view_profile(request):
-    args = {'user': request.user}
+def view_profile(request, pk=None):
+    if pk:
+        user = User.objects.get(pk=pk)
+    else:
+        user = request.user
+    users = User.objects.exclude(pk=request.user.pk)
+    friend = Friend.objects.get(current_user=request.user)
+    friends = friend.users.all() # a list of friends.
+    args = {'user': user, 'users': users, 'friends': friends}
     return render(request, 'users.html', args)
 
 def edit_profile(request):
@@ -91,3 +100,46 @@ def change_password(request):
         form = PasswordChangeForm(user=request.user)
         args={'form': form}
         return render(request, 'change_password.html', args)
+
+class CompaniesView(TemplateView):
+    template_name = 'companies.html'
+
+    def get(self, request):
+        form = CompaniesForm()
+        posts = Post.objects.all().order_by('-created')
+        users = User.objects.all()
+
+        args = {'form': form, 'posts': posts, 'users': users}
+
+        return render(request, self.template_name, args)
+
+    def post(self, request):
+        form = CompaniesForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            text = form.cleaned_data['post']
+            form = CompaniesForm()
+
+
+        return redirect('/companies')
+
+        args = {'form': form, 'text': text}
+        return render(request, self.template_name, args)
+
+from django.views.generic.edit import DeleteView
+from django.core.urlresolvers import reverse_lazy
+
+class CompanyDeleteView(DeleteView):
+    model = Post
+    success_url = reverse_lazy('companies')
+
+
+def change_friends(request, operation, pk):
+    friend = User.objects.get(pk=pk)
+    if operation =='add':
+        Friend.make_friend(request.user, friend)
+    elif operation == 'remove':
+        Friend.lose_friend(request.user, friend)
+    return redirect('/users')

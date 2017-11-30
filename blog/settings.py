@@ -31,7 +31,7 @@ SECRET_KEY = 'usty1l$zk$w^+-6uxuk)h4un3we2ko5+(azcr)v_lki(b63w8h'
 DEBUG = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vix000Q.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition

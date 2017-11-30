@@ -8,20 +8,63 @@
   {% block title %}Users{% endblock %}
   {% block content %}
 
-  	
+	<button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/home/' ">Previous page</button>
+	<br />
  	<div class="container" style="color: white;">
- 		<button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/home/' ">Previous page</button>
- 		<div class="row">
- 			<div class="col-md-8 col-md-offset-2">
-	     		<h1>Your profile:</h1> <br />
-	 			<p>Username: {{ user.username }}</p>
-	 			<p>E-mail address: {{ user.email }}</p>
-	 			<p>Created: {{user.date_joined}}</p>
-	 			<br />
-	 			<div class="btn btn-lg btn-primary" onclick="window.location.href='/users/edit_profile' ">
-	 			Edit profile</div>
+ 		<header>
+ 			<h2>Users</h2>
+ 			<p class="headerInfo">Click on the other user's profile name to see details </p>
+ 		</header>
+ 		<article>
+ 			<div class="row">
+ 				<div class="col-xs-12 col-sm-4 col-md-4">
+		     		<h3>Current profile:</h3> <br />
+		 			<p>Username: {{ user.username }}</p>
+		 			<p>E-mail address: {{ user.email }}</p>
+		 			<p>Created: {{user.date_joined}}</p>
+		 			<br />
+		 			<button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/users/edit_profile' ">Edit profile</button>
+		 		</div>
+		 		<div class="col-xs-6 col-sm-4 col-md-4">
+		 			<h3>Your friends:</h3>
+	        		{% for friend in friends %}
+	        			<div class="row">
+		        			<div class="col-xs-6 col-md-6">
+		      					<a href="{% url 'view_profile_with_pk' pk=friend.pk %}">
+		      					<h3 class="socialHeader">{{  friend.username }}</h3>
+		      				</a>
+		      				</div>
+	      					<div class="col-xs-6 col-md-6">
+		      					<a class="socialLink" href="{% url 'change_friends' operation='remove' pk=friend.pk %}">
+	      						<button class="btn btn-danger">
+      							<span class="glyphicon glyphicon-remove"></span>
+      							</button>
+      							</a>
+		      				</div>
+	      				</div>
+        			{% endfor %}
+        		</div>
+		      	<div class="col-xs-6 col-sm-4 col-md-4">
+	        		<h3>Other users:</h3>
+	        		{% for user in users %}
+	        			<div class="row">
+	        				<div class="col-xs-6 col-md-6">
+        					{% if not user in friends %}
+          						<a href="{% url 'view_profile_with_pk' pk=user.pk %}">
+	          					<h3 class="socialHeader">{{  user.username }}</h3>
+	          					</a>
+		          			</div>
+		          			<div class="col-xs-6 col-md-6">
+          						<a href="{% url 'change_friends' operation='add' pk=user.pk %}">
+          						<button class="btn btn-success">Add</button>
+	          					</a>
+          					{% endif %}
+		          			</div>
+		          		</div>
+	        		{% endfor %}
+  		  		</div>
 	 		</div>
-	 	</div>
+	 	</article>
 	</div>
 
 {% endblock %}

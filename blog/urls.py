@@ -26,8 +26,13 @@ urlpatterns = [
     url(r'^register/success/$', myapp_views.register_success),
     url(r'^accounts/login/$', auth_views.login),
     url(r'^logout/$', auth_views.login),
-    url(r'companies/$', myapp_views.companies),
+    url(r'companies/$', myapp_views.CompaniesView.as_view(), name="companies"),
     url(r'users/$', myapp_views.view_profile, name="view_profile"),
+    url(r'users/(?P<pk>\d+)/$', myapp_views.view_profile, name="view_profile_with_pk"),
     url(r'edit_profile/$', myapp_views.edit_profile, name="edit_profile"),
+    # url(r'users/(?P<pk>\d+)/edit_profile/$', myapp_views.edit_profile, name="edit_profile_with_pk"),
     url(r'change-password/$', myapp_views.change_password, name="change_password"),
+    url(r'^companies/$', myapp_views.CompanyDeleteView.as_view(), name='companies'),
+    url(r'^connect/(?P<operation>.+)/(?P<pk>\d+)/$', myapp_views.change_friends, name='change_friends')
+
 ]
