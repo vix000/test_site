@@ -221,10 +221,6 @@ input:hover
     font-size: 36px;
 }
 
-input.form-control {
-    background-color: #fff !important;
-    color: #333 !important;
-}
 
 .formHeaderStyle {
     color: #ffffff;
@@ -262,4 +258,8 @@ a {
 
 #whoIsLoggedIn {
     margin-bottom: 18px ;
+}
+
+.form-control {
+    background-color: #888888!important;
 }

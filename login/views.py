@@ -63,12 +63,19 @@ def home(request):
 
 def view_profile(request, pk=None):
     if pk:
-        user = User.objects.get(pk=pk)
+        user = User.objects.get_or_create(pk=pk)
     else:
         user = request.user
     users = User.objects.exclude(pk=request.user.pk)
-    friend = Friend.objects.get(current_user=request.user)
-    friends = friend.users.all() # a list of friends.
+    try:
+        friend = Friend.objects.get(current_user=request.user)
+        friends = friend.users.all()
+    except Friend.DoesNotExist:
+        friends = None
+
+
+    # friend = Friend.objects.get(current_user=request.user)
+    # friends = friend.users.all() # a list of friends.
     args = {'user': user, 'users': users, 'friends': friends}
     return render(request, 'users.html', args)
 
