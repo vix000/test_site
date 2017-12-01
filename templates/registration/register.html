@@ -4,7 +4,7 @@
 {% block head %}User Registration{% endblock %}
 {% block content %}
 
-            
+        <section>
             <div class="container">
                 <div class="col-md-9">
                     <div class="row">
@@ -12,9 +12,10 @@
                             <form method="post" class="post_method" action=".">{% csrf_token %}
                                 <table border="0">
                                     <div class="formHeaderStyle">
+                                        <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='/' ">Previous page</button>
+                                        <br /><br />
                                         {{ form|crispy }}
                                         <button class="btn btn-lg btn-success" type="submit" value="Register">Register</button>
-                                        <button class="btn btn-lg btn-primary" type="button" onclick="window.location.href='/' ">Back</button>
                                     </div>
             		    	    </table>
             		        </form>
@@ -22,6 +23,7 @@
                     </div>
                 </div>
             </div>
+        </section>
 
 
 {% endblock %}

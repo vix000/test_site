@@ -8,9 +8,10 @@
   {% block title %}Users{% endblock %}
   {% block content %}
 
-	<button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/home/' ">Previous page</button>
-	<br />
- 	<div class="container" style="color: white;">
+
+ 	<div class="container formHeaderStyle" style="color: white;">
+		<button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/home/' ">Previous page</button>
+		<br />
  		<header>
  			<h2>Users</h2>
  			<p class="headerInfo">Click on the other user's profile name to see details </p>
@@ -28,7 +29,7 @@
 		 		<div class="col-xs-6 col-sm-4 col-md-4">
 		 			<h3>Your friends:</h3>
 	        		{% for friend in friends %}
-	        			<div class="row">
+	        			<div class="row centeredRow">
 		        			<div class="col-xs-6 col-md-6">
 		      					<a href="{% url 'view_profile_with_pk' pk=friend.pk %}">
 		      					<h3 class="socialHeader">{{  friend.username }}</h3>
@@ -36,7 +37,7 @@
 		      				</div>
 	      					<div class="col-xs-6 col-md-6">
 		      					<a class="socialLink" href="{% url 'change_friends' operation='remove' pk=friend.pk %}">
-	      						<button class="btn btn-danger">
+	      						<button class="btn btn-sm btn-danger">
       							<span class="glyphicon glyphicon-remove"></span>
       							</button>
       							</a>
@@ -47,7 +48,7 @@
 		      	<div class="col-xs-6 col-sm-4 col-md-4">
 	        		<h3>Other users:</h3>
 	        		{% for user in users %}
-	        			<div class="row">
+	        			<div class="row centeredRow">
 	        				<div class="col-xs-6 col-md-6">
         					{% if not user in friends %}
           						<a href="{% url 'view_profile_with_pk' pk=user.pk %}">
@@ -56,7 +57,7 @@
 		          			</div>
 		          			<div class="col-xs-6 col-md-6">
           						<a href="{% url 'change_friends' operation='add' pk=user.pk %}">
-          						<button class="btn btn-success">Add</button>
+          						<button class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span></button>
 	          					</a>
           					{% endif %}
 		          			</div>

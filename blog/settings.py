@@ -28,10 +28,10 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__)) #so that django will 
 SECRET_KEY = 'usty1l$zk$w^+-6uxuk)h4un3we2ko5+(azcr)v_lki(b63w8h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
-ALLOWED_HOSTS = ['vix000Q.pythonanywhere.com','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

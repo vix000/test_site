@@ -3,23 +3,26 @@
 {% block head %}Login{% endblock %}
 {% block content %}
 {% load static %} 
+    
 
-    <h1 class="text-center login-title"><i>CRM System</i></h1><br />
-    <img class="profile-img" src="https://d2xvgh02jbj6qq.cloudfront.net/assets/profile-image-default-f9489173dc9fd17abb4b0b3aadad40086606f585716879c04c5d46f1ca685941.png"
-    alt="">
-    {% if form.errors %}
-        <p class="errMsg">Your username and password didn't match. Please try again.</p>
-    {% endif %}
-
-    <form class="form-signin" method="post" action="." >{% csrf_token %}
-        <h3 class="form-signin-heading">Welcome!</h3>
-        <label for="inputText" class="sr-only">Username</label>
-        <input type="text" class="form-control" placeholder="Username" name="username">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" class="form-control" placeholder="Password" name="password">
-        <button class="btn btn-lg btn-success btn-block" type="submit" value="Login" id="login-button">Login</button>
-        <button class="btn btn-lg btn-primary btn-block" type="button" value="Register" onclick="window.location.href='/register/' ">Register</button>
-        <input type="hidden" name="next" value="/home" />
-    </form>
+    <section class="formHeaderStyle">
+            <header>
+        <h1 class="text-center login-title">Customer relationship management</h1><br />
+        <img class="profile-img" style="color: #ffffff;" src="https://d2xvgh02jbj6qq.cloudfront.net/assets/profile-image-default-f9489173dc9fd17abb4b0b3aadad40086606f585716879c04c5d46f1ca685941.png" alt="Profile photo">
+        {% if form.errors %}
+            <p class="errMsg">Your username and password didn't match. Please try again.</p>
+        {% endif %}
+    </header>
+        <form class="form-signin" method="post" action="." >{% csrf_token %}
+            <h3 class="form-signin-heading">Welcome!</h3>
+            <label for="inputText" class="sr-only">Username</label>
+            <input type="text" class="form-control" placeholder="Username" name="username">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" class="form-control" placeholder="Password" name="password">
+            <button class="btn btn-lg btn-success btn-block" type="submit" value="Login" id="login-button">Login</button>
+            <button class="btn btn-lg btn-primary btn-block" type="button" value="Register" onclick="window.location.href='/register/' ">Register</button>
+            <input type="hidden" name="next" value="/home" />
+        </form>
+    </section>
 
 {% endblock %}

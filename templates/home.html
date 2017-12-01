@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+  {% extends "base.html" %}
 {% load staticfiles %}
 {% block js %}
 {{ block.super }}
@@ -6,47 +6,46 @@
 {% block title %}Home page{% endblock %}
 {% block content %}
   
-  <header class="header">
-      <div class="row" id="homeRow">
-        <button type="button" class="btn btn-sm btn-danger" onclick="window.location.href='/logout/' ">Logout</button>
-       <h3 id="whoIsLoggedIn">Logged as:  {{ user.username }}</h3>
-      </div>
-  </header>
 
-  <div class="jumbotron jumbotron-transparent-a">
-    <div class="container">
-      <div class="col-lg-12">
+  <div class="container formHeaderStyle">
+    <div class="col-lg-12">
+      <div class="jumbotron jumbotron-transparent-a">
+        <header class="header">
+          <div class="row" id="homeRow">
+            <button type="button" class="btn btn-sm btn-default" onclick="window.location.href='/logout/' "><span class=" glyphicon glyphicon-log-out"></span></button>
+            <h3 id="whoIsLoggedIn">Logged as:  {{ user.username }}</h3>
+          </div>
+        </header>
         <section>
           <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
-              <ol class="carousel-indicators">
-                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                  <li data-target="#myCarousel" data-slide-to="1"></li>
-              </ol>   
-             
-              <div class="carousel-inner">
-                  <div class="item active">
-                    <img src="{% static 'images/empty.png' %}" class="img-responsive" alt="Users icon">
-                      <div class="carousel-caption">
-                          <p><span class="carouselTextHeader">Companies</span></p>
-                          <button class="btn btn-md btn-md btn-primary" onclick="window.location.href='/companies/' ">Add companies to the database</button> <br /><br />
-                      </div>
-                  </div>
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>   
+           
+            <div class="carousel-inner">
+                <div class="item active">
+                  <img src="{% static 'images/empty.png' %}" class="img-responsive" alt="Users icon">
+                    <div class="carousel-caption">
+                        <p><span class="carouselTextHeader">Companies</span></p>
+                        <button class="btn btn-md btn-md btn-primary" onclick="window.location.href='/companies/' ">Add companies to the database</button> <br /><br />
+                    </div>
+                </div>
+                <div class="item">
+                  <img src="{% static 'images/empty.png' %}" class="img-responsive" alt="Users icon">
+                    <div class="carousel-caption">
+                      <p><span class="carouselTextHeader">Users</span></p>
+                      <button class="btn btn-md btn-md btn-primary" onclick="window.location.href='/users/' ">Manage profiles and relations</button> <br /><br />
+                    </div>
+                </div>
+            </div>
 
-                  <div class="item">
-                    <img src="{% static 'images/empty.png' %}" class="img-responsive" alt="Users icon">
-                      <div class="carousel-caption">
-                          <p><span class="carouselTextHeader">Users</span></p>
-                          <button class="btn btn-md btn-md btn-primary" onclick="window.location.href='/users/' ">Manage profiles and relations</button> <br /><br />
-                      </div>
-                  </div>
-              </div>
-
-              <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left"></span>
-              </a>
-              <a class="carousel-control right" href="#myCarousel" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right"></span>
-              </a>
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
           </div>
         </section>
       </div>

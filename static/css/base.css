@@ -66,9 +66,10 @@
 .login-title
 {
     color: #ffffff;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 400;
     display: block;
+    font-style: italic;
 }
 
 .profile-img
@@ -116,7 +117,6 @@
 }
 
 .form-control {
-    background: rgba(0,0,0,0.2)!important;
     border: none!important;
     box-shadow: none!important;
     color: white!important;
@@ -143,11 +143,6 @@
 
 header {
     color: #ffffff;
-}
-
-img {
-    height:250px;
-    width:100%;
 }
 
 /*transiton, transform*/
@@ -216,11 +211,6 @@ input:hover
     font-size: 1px;
 }
 
-/*.formHeaderStyle {
-    color: #ffffff;
-    border-radius: 5%;
-}*/
-
 .carousel-caption {
     top: 56%;
     transform: translateY(-50%);
@@ -240,7 +230,7 @@ input.form-control {
     color: #ffffff;
     background: rgba(0,0,0,0.8);
     padding: 30px;
-    max-width: 500px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -262,4 +252,14 @@ a {
 .headerInfo {
     font-style: italic;
     font-size: 14px;
+}
+
+.centeredRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#whoIsLoggedIn {
+    margin-bottom: 18px ;
 }
