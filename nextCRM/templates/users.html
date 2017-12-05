@@ -1,0 +1,82 @@
+  {% extends "home.html" %}
+  {% load staticfiles %}
+  {% block js %}
+      {{ block.super }}
+  {% endblock %}
+  {% block head %}
+  <title>Users</title>{% endblock %}
+  {% block title %}Users{% endblock %}
+  {% block content %}
+
+
+ 	<div class="container formHeaderStyle" style="color: white;">
+		<br />
+ 		<header>
+ 			<h2>Users</h2>
+ 			<p class="headerInfo">Click on the other user's profile name to see details </p>
+ 		</header>
+ 		<article>
+ 			<div class="row">
+ 				<div class="col-xs-12 col-sm-4 col-md-6">
+		     		<h3>My profile:</h3> <br />
+		 			<p>Username: {{ user.username }}</p>
+		 			<p>E-mail address: {{ user.email }}</p>
+		 			<p>Created: {{user.date_joined}}</p>
+		 			<br />
+		 		</div>
+<!--		 		<div class="col-xs-6 col-sm-4 col-md-4">
+		 			<h3>Your friends:</h3>
+	        		{% for friend in friends %}
+	        			<div class="row centeredRow">
+		        			<div class="col-xs-6 col-md-6">
+		      					<a href="{% url 'view_profile_with_pk' pk=friend.pk %}">
+		      					<h3 class="socialHeader">{{  friend.username }}</h3>
+		      				</a>
+		      				</div>
+	      					<div class="col-xs-6 col-md-6">
+		      					<a class="socialLink" href="{% url 'change_friends' operation='remove' pk=friend.pk %}">
+	      						<button class="btn btn-sm btn-danger">
+      							<span class="glyphicon glyphicon-remove"></span>
+      							</button>
+      							</a>
+		      				</div>
+	      				</div>
+        			{% endfor %}
+        		</div>-->
+
+
+		      	<div class="col-xs-6 col-sm-4 col-md-6">
+	        		<h3>Users:</h3>
+	        		{% for user in users %}
+	        			<div class="row centeredRow">
+	        				<div class="col-xs-6 col-md-6">
+        					{% if not user in friends %}
+
+	          					<h3 class="socialHeader">{{ user.username }}</h3>
+	          					</a>
+		          			</div>
+		          			<div class="col-xs-6 col-md-6">
+ <!--         						<a href="{% url 'change_friends' operation='add' pk=user.pk %}">
+          						<button class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+	          					</a>
+-->
+								<a class="socialLink" href="{% url 'update_user' pk=user.pk %}">
+	      						<button class="btn btn-sm btn-info">
+      							Update
+      							</button>
+      							</a>
+								<a class="socialLink" href="{% url 'delete_user' pk=user.pk %}">
+	      						<button class="btn btn-sm btn-danger">
+      							Delete
+      							</button>
+      							</a>
+          					{% endif %}
+		          			</div>
+		          		</div>
+	        		{% endfor %}
+  		  		</div>
+	 		</div>
+	 	</article>
+	</div>
+
+{% endblock %}

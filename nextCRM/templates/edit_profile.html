@@ -1,0 +1,31 @@
+  {% extends "home.html" %}
+  {% load staticfiles %}
+  {% block js %}
+      {{ block.super }}
+  {% endblock %}
+
+  {% block title %}Edit profile{% endblock %}
+  {% block content %}
+
+ 	<div class="container">
+    <section>
+      <div class="row">
+        <div class="formHeaderStyle">
+          <form method="post">
+            {% load widget_tweaks %}
+            {% csrf_token %} <!--it is going to be submitted with the data so i can authenticate-->
+            <br />
+            <div>
+              <span class="editProfileInput">Username:</span>
+              <p>{% render_field form.username class+="form-control" %}</p>
+              <span class="editProfileInput">E-mail:</span>
+              <p>{% render_field form.email class+="form-control" %}</p>
+            <button type="submit" class="btn btn-lg btn-success">Submit</button>
+            </div>
+          </form>
+        </div>
+   	  </div>
+  </section>
+</div>
+
+{% endblock %}

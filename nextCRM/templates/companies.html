@@ -1,0 +1,47 @@
+  {% extends "home.html" %}
+  {% load staticfiles %}
+  {% load crispy_forms_tags %}
+  {% block js %}
+      {{ block.super }}
+  {% endblock %}
+  {% block title %}Companies{% endblock%}
+  {% block content %}
+
+
+  <article>
+    <div class="formHeaderStyle">
+      <form method="post">
+        {% csrf_token %}
+        <div>
+          <header>
+            <h1>Companies</h1>
+          </header>
+          <div class="row">
+            <div class="col col-lg-6">
+              {{ form|crispy }}
+              <button type="submit" class="btn btn-lg btn-success">Add</button>
+            </div>
+            <div class="col col-lg-6">
+              <section>
+                {% for post in posts %}
+                <div class="row">
+                  <div class="col-md-6">
+                <h3>{{ post.post }}</h3>
+                    </div>
+                  <div class="col-md-6">
+                <a class="socialLink" href="{% url 'delete_company' pk=post.pk %}">
+                  </div>
+                  <button class="btn btn-md btn-danger">Delete</button></a>
+                  </div>
+                <p>Added by: {{ post.user }} on {{ post.created }}</p>
+                {% endfor %}
+              </section>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </article
+
+
+{% endblock %}
