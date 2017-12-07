@@ -1,20 +1,20 @@
-{% extends "home.html" %}
+{% extends "base.html" %}
 
 
 
-    {% block content %}
+{% block content %}
 
-<div class="container formHeaderStyle" style="color: white;">
-    <div class="col col-md-6 col-md-offset-3">
-        <form action="" method="post">{% csrf_token %}
-            <p>Are you sure you want to delete "{{ user }}" ?</p>
-            <button class="btn btn-lg btn-primary" type="submit">
-                Yes, delete this user
-            </button>
-            <a href="{% url 'view_profile' %}">
-        </form>
+    <div class="container">
+        <h1>User delete confirmation</h1>
+        <div class="col col-md-6 col-md-offset-3">
+            <form action="" method="post">{% csrf_token %}
+                <p>Are you sure you want to delete user "{{ user }}" ?</p>
+                <button class="btn btn-md btn-primary" type="submit">
+                    Yes, delete this user
+                </button>
+                <a href="{% url 'view_profile' %}">
+            </form>
+        </div>
     </div>
-    <button class="btn btn-md btn-default">Previous page</button>
-</div>
 
-  {% endblock %}
+{% endblock %}

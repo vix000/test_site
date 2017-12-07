@@ -1,4 +1,4 @@
-{% extends "home.html" %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
 
 
@@ -6,11 +6,11 @@
 {% csrf_token %}
 
     {% block content %}
-<div class="container formHeaderStyle" style="color: white;">
+<div class="container">
     <div class="col col-md-6 col-md-offset-3">
             <form action="" method="post">{% csrf_token %}
                 {{ form|crispy }}
-                            <button type="submit" class="btn btn-lg btn-success">Submit</button>
+                    <button type="submit" class="btn btn-lg btn-success">Submit</button>
             </form>
 
     </div>

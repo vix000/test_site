@@ -1,18 +1,14 @@
-{% extends "home.html" %}
+{% extends "base.html" %}
 {% block title %}Registration Successful{% endblock %}
 {% block head %}
  Registration Completed Successfully
 {% endblock %}
 {% block content %}
 
-	<header>
-    	<h3 class="regThanks">Registration successful.</h3>
-    </header>
-
-    <br/><br/>
-    
-    <div class="col-md-12 text-center">
-    	<button type="button" class="btn btn-lg btn-success" onclick="window.location.href='/login' ">Login page</button>
-	</div>
+<div class="container">
+    <div class="col">
+    <h3 class="regThanks">Registration successful.</h3>
+        </div>
+</div>
 
 {% endblock %}

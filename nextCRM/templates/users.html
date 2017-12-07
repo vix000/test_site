@@ -1,4 +1,4 @@
-  {% extends "home.html" %}
+  {% extends "base.html" %}
   {% load staticfiles %}
   {% block js %}
       {{ block.super }}
@@ -6,24 +6,68 @@
   {% block head %}
   <title>Users</title>{% endblock %}
   {% block title %}Users{% endblock %}
-  {% block content %}
 
 
- 	<div class="container formHeaderStyle" style="color: white;">
+{% block content %}
+
+{% block header %}
+	<script>
+		$(document).ready(function () {
+			$('table').DataTable({
+				"pagingType": "full_numbers",
+				"searching": false,
+				"lengthMenu": [5, 10, 15, 25, 50],
+				responsive: true
+			});
+		});
+	</script>
+{% endblock %}
+
+{% if request.user.is_authenticated %}
+ 	<div class="container">
 		<br />
  		<header>
- 			<h2>Users</h2>
- 			<p class="headerInfo">Click on the other user's profile name to see details </p>
+ 			<h1>Users</h1>
+ 			<p class="headerInfo">Only administrators can interact with users</p>
  		</header>
- 		<article>
- 			<div class="row">
- 				<div class="col-xs-12 col-sm-4 col-md-6">
-		     		<h3>My profile:</h3> <br />
-		 			<p>Username: {{ user.username }}</p>
-		 			<p>E-mail address: {{ user.email }}</p>
-		 			<p>Created: {{user.date_joined}}</p>
-		 			<br />
-		 		</div>
+
+		    <table cellspacing="1" class="table table-striped table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+			<th scope="col">E-mail address</th>
+		{% if request.user.is_superuser %}
+          <th scope="col">Actions</th>
+			{% endif %}
+        </tr>
+      </thead>
+      <tbody>
+{% for user in users %}
+        <tr>
+          <td scope="row">{{ forloop.counter }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+			{% if request.user.is_superuser %}
+			<td>
+				<a href="{% url 'update_user' pk=user.pk %}"><button class="btn btn-sm btn-default">Edit</button></a>
+				<a href="{% url 'delete_user' pk=user.pk %}"><button class="btn btn-sm btn-danger">Delete</button></a>
+			</td>
+			{% endif %}
+        </tr>
+{% endfor %}
+      </tbody>
+</table>
+
+ 		<!--<article>-->
+ 			<!--<div class="row">-->
+ 				<!--<div class="col-xs-12 col-sm-4 col-md-6">-->
+		     		<!--<h3>My profile:</h3> <br />-->
+		 			<!--<p>Username: {{ user.username }}</p>-->
+		 			<!--<p>E-mail address: {{ user.email }}</p>-->
+		 			<!--<p>Created: {{user.date_joined}}</p>-->
+		 			<!--<br />-->
+		 		<!--</div>-->
 <!--		 		<div class="col-xs-6 col-sm-4 col-md-4">
 		 			<h3>Your friends:</h3>
 	        		{% for friend in friends %}
@@ -45,38 +89,35 @@
         		</div>-->
 
 
-		      	<div class="col-xs-6 col-sm-4 col-md-6">
-	        		<h3>Users:</h3>
-	        		{% for user in users %}
-	        			<div class="row centeredRow">
-	        				<div class="col-xs-6 col-md-6">
-        					{% if not user in friends %}
-
-	          					<h3 class="socialHeader">{{ user.username }}</h3>
-	          					</a>
-		          			</div>
-		          			<div class="col-xs-6 col-md-6">
- <!--         						<a href="{% url 'change_friends' operation='add' pk=user.pk %}">
-          						<button class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-	          					</a>
--->
-								<a class="socialLink" href="{% url 'update_user' pk=user.pk %}">
-	      						<button class="btn btn-sm btn-info">
-      							Update
-      							</button>
-      							</a>
-								<a class="socialLink" href="{% url 'delete_user' pk=user.pk %}">
-	      						<button class="btn btn-sm btn-danger">
-      							Delete
-      							</button>
-      							</a>
-          					{% endif %}
-		          			</div>
-		          		</div>
-	        		{% endfor %}
-  		  		</div>
-	 		</div>
-	 	</article>
+		      	<!--<div class="col-xs-6 col-sm-4 col-md-6">-->
+	        		<!--<h3>Users:</h3>-->
+	        		<!--{% for user in users %}-->
+	        			<!--<div class="row centeredRow">-->
+							<!--<h3 class="socialHeader">{{ user.username }}</h3>-->
+		          			<!--<div class="col-xs-6 col-md-6">-->
+ <!--&lt;!&ndash;         						<a href="{% url 'change_friends' operation='add' pk=user.pk %}">-->
+          						<!--<button class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span></button>-->
+	          					<!--</a>-->
+<!--&ndash;&gt;								{% if request.user.is_superuser and not user.is_superuser %}-->
+									<!--<a class="socialLink" href="{% url 'update_user' pk=user.pk %}">-->
+									<!--<button class="btn btn-sm btn-info">-->
+									<!--Update-->
+									<!--</button>-->
+									<!--</a>-->
+									<!--<a class="socialLink" href="{% url 'delete_user' pk=user.pk %}">-->
+									<!--<button class="btn btn-sm btn-danger">-->
+									<!--Delete-->
+									<!--</button>-->
+									<!--</a>-->
+								<!--{% elif user.is_superuser %}-->
+									<!--<h3>Administrator</h3>-->
+								<!--{% endif %}-->
+		          			<!--</div>-->
+		          		<!--</div>-->
+	        		<!--{% endfor %}-->
+  		  		<!--</div>-->
+	 		<!--</div>-->
+	 	<!--</article>-->
 	</div>
-
+{% endif %}
 {% endblock %}

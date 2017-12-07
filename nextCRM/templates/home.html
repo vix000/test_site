@@ -17,14 +17,18 @@
             </button>
             <button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/users/' ">Users
             </button>
+            {% if not request.user.is_superuser %}
             <button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/users/edit_profile' ">
                 My profile
             </button>
+          {% endif %}
             <button type="button" class="btn btn-lg btn-primary"
                     onclick="window.location.href='/users/change-password' ">Change password
             </button>
+            {% if request.user.is_superuser %}
             <button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/admin/' ">Admin panel
             </button>
+            {% endif %}
             <button type="button" class="btn btn-lg btn-default" onclick="window.location.href='/logout/' ">Logout
             </button>
         </header>

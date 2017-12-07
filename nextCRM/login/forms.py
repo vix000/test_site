@@ -4,7 +4,10 @@ from login.models import Post
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 from django.utils.translation import ugettext_lazy as _
- 
+from login.models import Comment
+
+
+
 class RegistrationForm(forms.Form):
  
     username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs=dict(required=True, max_length=30, placeholder="jan_kowalski")), label=_("Username"), error_messages={ 'invalid': _("Only letters, numbers and undescores avaiable.") })
@@ -37,12 +40,25 @@ class EditProfileForm(UserChangeForm):
             'password' #had to ad the password so that submitting changes would work
             )  
 
-
-
-
 class CompaniesForm(forms.ModelForm):
     post = forms.CharField()
 
     class Meta:
         model = Post
-        fields = ('post',)
+        fields = '__all__'
+
+
+
+class EditCompanyForm(forms.ModelForm):
+
+    #fill or exclude = in fill gives selected, in exclude excludes selected
+    class Meta: #it specifies the metadata for the form itself
+        model = Post
+        fields = '__all__'
+
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('content',)

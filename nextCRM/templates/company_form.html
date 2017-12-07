@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+        <section>
+            <div class="container">
+                <div class="col-6 col-offspan-2">
+                    <h1>Add new company:</h1>
+                <form method="post" class="post_method" action=".">{% csrf_token %}
+                    <table border="0">
+                            {{ form|crispy }}
+                        <button class="btn btn-lg btn-success" type="submit" value="Add">Add</button>
+                    </table>
+                </form>
+                </div>
+        </section>
+
+
+{% endblock %}

@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
 ]
 
+
+
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -79,6 +81,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'login.context_processors.companies',
             ],
         },
     },
@@ -120,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -144,6 +147,21 @@ STATICFILES_DIRS = (
     ('css', os.path.join(STATIC_ROOT , 'css')),
     ('js', os.path.join(STATIC_ROOT , 'js')),
     ('images', os.path.join(STATIC_ROOT , 'images')),
+    ('vendor', os.path.join(STATIC_ROOT, 'vendor')),
 )
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+
+#in terminal: python -m smtpd -n -c DebuggingServer localhost:1025 TO ACTIVATE FAKE EMAIL SERVER
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+)
