@@ -73,16 +73,10 @@ def view_profile(request, pk=None):
     else:
         user = request.user
     users = User.objects.exclude(pk=request.user.pk)
-    try:
-        friend = Friend.objects.get(current_user=request.user)
-        friends = friend.users.all()
-    except Friend.DoesNotExist:
-        friends = None
-
 
     # friend = Friend.objects.get(current_user=request.user)
     # friends = friend.users.all() # a list of friends.
-    args = {'user': user, 'users': users, 'friends': friends}
+    args = {'user': user, 'users': users}
     return render(request, 'users.html', args)
 
 @login_required
@@ -202,18 +196,22 @@ class CompanyDetail(LoginRequiredMixin, DetailView):
         return context
 
 
+
 class CompanyComment(LoginRequiredMixin, DetailView):
-    model = Comment
+    model = Post
     fields = ('content',)
     template_name = 'company_comment.html'
     success_url = reverse_lazy('companies')
 
-    def get(self, request, pk):
+    def get_context_data(self, **kwargs):
         form = CommentForm()
-        template_name = 'companies.html'
-        comments = Comment.objects.all()
-        args = {'form': form, 'comments': comments}
+        context = super().get_context_data(**kwargs)
+        context['comments'] = Comment.objects.all()
+        print(kwargs)
+        return context
 
-        return render(request, self.template_name, args)
 
-
+class RecentCompaniesView(LoginRequiredMixin, ListView):
+    model = Post
+    fields = ('post', 'created', )
+    template_name = 'home.html'

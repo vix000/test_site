@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-
 from login import views as myapp_views
 from django.contrib.auth import views as auth_views
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 app_name = 'post'
@@ -25,7 +26,7 @@ app_name = 'post'
 urlpatterns = [
 	url(r'^admin/', include(admin.site.urls)),
     url(r'^$', auth_views.login),
-    url(r'^home/$', myapp_views.home),
+    url(r'^home/$', myapp_views.home, name="home"),
     url(r'^register/$', myapp_views.register, name='register'),
     url(r'^add_company/$', myapp_views.CompanyAdd.as_view(), name='add_company'),
     url(r'companies/(?P<pk>\d+)/comment_company/$', myapp_views.CompanyComment.as_view(), name='comment_company'),
@@ -49,4 +50,4 @@ urlpatterns = [
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         auth_views.password_reset_confirm, name='password_reset_confirm'),
     url(r'^reset/done/$', auth_views.password_reset_complete, name='password_reset_'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -14,6 +14,7 @@ class Post(models.Model):
 	user = models.ForeignKey(User)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
+	image = models.ImageField(upload_to='profile_image', blank=True)
 
 	def __str__(self):
 		return self.post

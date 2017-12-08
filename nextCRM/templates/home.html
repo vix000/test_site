@@ -6,34 +6,32 @@
 {% block title %}Home page{% endblock %}
 
 {% block menu %}
-<div class="container formHeaderStyle">
-    <div class="col-lg-12">
-        <header class="header">
-            <div class="row" id="homeRow">
-                <h3 id="whoIsLoggedIn">Logged as: {{ user.username }}</h3>
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+            <header>
+ 			    <h1>Latest news</h1><br/><br/>
+ 		    </header>
+            <div class="row">
+                <div class="col-6">
+                    <h4>Recently added companies:</h4>
+                    {% for post in posts %}
+                        {{ post.post}}
+                    {% endfor %}
+                </div>
+                <div class="col-6">
+                    <h4>Recently registered users:</h4>
+                </div>
             </div>
-            <button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/companies/' ">
-                Companies
-            </button>
-            <button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/users/' ">Users
-            </button>
-            {% if not request.user.is_superuser %}
-            <button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/users/edit_profile' ">
-                My profile
-            </button>
-          {% endif %}
-            <button type="button" class="btn btn-lg btn-primary"
-                    onclick="window.location.href='/users/change-password' ">Change password
-            </button>
-            {% if request.user.is_superuser %}
-            <button type="button" class="btn btn-lg btn-primary" onclick="window.location.href='/admin/' ">Admin panel
-            </button>
-            {% endif %}
-            <button type="button" class="btn btn-lg btn-default" onclick="window.location.href='/logout/' ">Logout
-            </button>
-        </header>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+
+
+
 {% endblock %}
 
 {% block content %}
@@ -41,64 +39,6 @@
 
 
 
-<!--
-<header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Dashboard</a>
-        <br />
-
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/home/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/home/users/">User profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/home/companies">Companies</a>
-            </li>
-          </ul>
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
-    </header>
-
-    <div class="container-fluid">
-      <div class="row">
-        <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-          <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Reports</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Analytics</a>
-            </li>
-
-          </ul>
-        </nav>
-
-        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-          <h1>CRM system</h1>
-
-
-
-          <h2>Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-
-            </table>
-          </div>
-        </main>
-      </div>
-    </div>-->
 
 
 {% endblock %}

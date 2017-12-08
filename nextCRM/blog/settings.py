@@ -150,6 +150,11 @@ STATICFILES_DIRS = (
     ('vendor', os.path.join(STATIC_ROOT, 'vendor')),
 )
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'login/media')
+
+
+
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 

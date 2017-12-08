@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
 
 
@@ -6,17 +6,12 @@
 <div class="container">
     <form action="" method="post">{% csrf_token %}
         {{ form|crispy }}
-        <button type="submit" class="btn btn-lg btn-success">Submit</button>
-                    {% for comment in comments %}
-                {{ comment.content }}, Added by: {{ user.username }}<br/>
-            {% endfor %}
+        <button type="submit" class="btn btn-lg btn-success">Submit</button><br />
+                <div class="container">
+                    {% for comment in post_comments %}
+                        {{ comment.content }}, Added by: {{ user.username }}<br/>
+                    {% endfor %}
+                </div>
     </form>
-
 </div>
 {% endblock %}
-
-    <div class="commentForm">
-        {% for comment in post.comment_set.all %}
-        <p id="commentP">{{ comment.content }}</p>
-        {% endfor %}
-    </div>

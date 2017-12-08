@@ -9,7 +9,8 @@ from login.models import Comment
 
 
 class RegistrationForm(forms.Form):
- 
+    first_name = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs=dict(required=False, max_length=30, placeholder="jan")), label=_("First name"), error_messages={'invalid': _("Only letters, numbers and undescores avaiable.")})
+    last_name = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs=dict(required=True, max_length=30, placeholder="kowalski")), label=_("Last name"),error_messages={'invalid': _("Only letters, numbers and undescores avaiable.")})
     username = forms.RegexField(regex=r'^\w+$', widget=forms.TextInput(attrs=dict(required=True, max_length=30, placeholder="jan_kowalski")), label=_("Username"), error_messages={ 'invalid': _("Only letters, numbers and undescores avaiable.") })
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(required=True, max_length=30, placeholder="example@gmail.com")), label=_("Email address"))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs=dict(required=True, max_length=30, render_value=False)), label=_("Password"))
@@ -35,6 +36,8 @@ class EditProfileForm(UserChangeForm):
     class Meta: #it specifies the metadata for the form itself
         model = User
         fields = (
+            'first_name',
+            'last_name',
             'username',
             'email',
             'password' #had to ad the password so that submitting changes would work
