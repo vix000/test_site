@@ -37,9 +37,7 @@
           <th scope="col">Name</th>
           <th scope="col">Location</th>
             <td>Added by:</td>
-            {% if request.user.is_superuser %}
           <th scope="col">Actions</th>
-            {% endif %}
             <th scope="col">Comments</th>
             <th scope="col">Details</th>
         </tr>
@@ -51,7 +49,6 @@
           <td>{{ company.post }}</td>
             <td>{{ company.location }}</td>
             <td>{{ request.user }}</td>
-                        {% if request.user.is_superuser %}
           <td>
 
                 <a class="socialLink" href="{% url 'edit_company' pk=company.pk %}">
@@ -66,7 +63,6 @@
                 </button>
                 </a>
           </td>
-            {% endif %}
 
             <td>
                 <a class="socialLink" href="{% url 'comment_company' pk=company.pk %}">

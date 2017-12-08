@@ -26,7 +26,7 @@ app_name = 'post'
 urlpatterns = [
 	url(r'^admin/', include(admin.site.urls)),
     url(r'^$', auth_views.login),
-    url(r'^home/$', myapp_views.home, name="home"),
+    url(r'^home/$', myapp_views.home, name='home'),
     url(r'^register/$', myapp_views.register, name='register'),
     url(r'^add_company/$', myapp_views.CompanyAdd.as_view(), name='add_company'),
     url(r'companies/(?P<pk>\d+)/comment_company/$', myapp_views.CompanyComment.as_view(), name='comment_company'),

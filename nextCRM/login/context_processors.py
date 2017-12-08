@@ -1,8 +1,9 @@
-# from .models import Post
-#
-#
-# def companies(request):
-#     ctx = {
-#         'companies': Post.objects.all()
-#     }
-#     return ctx
+from .models import Post, Comment
+
+
+def companies(request):
+    ctx = {
+        'companies': Post.objects.all(),
+        'comments': Comment.objects.all()
+    }
+    return ctx
