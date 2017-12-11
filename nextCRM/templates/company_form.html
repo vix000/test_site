@@ -3,19 +3,24 @@
 
 
 {% block content %}
-
-        <section>
-            <div class="container">
-                <div class="col-6 col-offspan-2">
-                    <h1>Add new company:</h1>
-                <form method="post" class="post_method" action=".">{% csrf_token %}
-                    <table border="0">
-                            {{ form|crispy }}
-                        <button class="btn btn-lg btn-success" type="submit" value="Add">Add</button>
-                    </table>
-                </form>
-                </div>
-        </section>
-
-
+<section>
+    <div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Companies</li>
+        <li class="breadcrumb-item active">Add</li>
+    </ol>
+    <div class="col-6 col-offspan-2">
+        <h1>Add new company:</h1>
+        <form method="post" class="post_method" action=".">{% csrf_token %}
+            <table border="0">
+                {{ form|crispy }}
+                <button class="btn btn-lg btn-success" type="submit" value="Add">Add</button>
+            </table>
+        </form>
+    </div>
+</section>
 {% endblock %}

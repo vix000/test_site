@@ -2,12 +2,14 @@
 #views.py
 from login.forms import *
 
+
+from django.db import models
 from django.views.generic import ListView, DetailView, CreateView
-from login.models import Post, Friend, Comment
+from login.models import Post, Friend, CompanyComment
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, UpdateView, CreateView
 from .forms import CompaniesForm, CommentForm
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
@@ -196,22 +198,20 @@ class CompanyDetail(LoginRequiredMixin, DetailView):
         return context
 
 
-
-class CompanyComment(LoginRequiredMixin, DetailView):
-    model = Post
-    fields = ('content',)
-    template_name = 'company_comment.html'
-    success_url = reverse_lazy('companies')
-
-    def get_context_data(self, **kwargs):
+def add_comment(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('company_details', pk=post.pk)
+    else:
         form = CommentForm()
-        context = super().get_context_data(**kwargs)
-        context['comments'] = Comment.objects.all()
-        print(kwargs)
-        return context
+    template = 'add_comment.html'
+    context = {'form': form}
+    return render(request, template, context)
 
 
-class RecentCompaniesView(LoginRequiredMixin, ListView):
-    model = Post
-    fields = ('post', 'created', )
-    template_name = 'home.html'
+

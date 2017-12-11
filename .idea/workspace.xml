@@ -1,18 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/nextCRM/login/views.py" description="&#10;def change_friends(request, operation, pk):&#10;    f..." line="138" />
+    <bookmark url="file://$PROJECT_DIR$/nextCRM/login/views.py" description="&#10;def change_friends(request, operation, pk):&#10;    f..." line="140" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f6c3612-3677-4199-8afb-b2f1b7b1fa5d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/.gitignore" afterPath="$PROJECT_DIR$/nextCRM/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/README.md" afterPath="$PROJECT_DIR$/nextCRM/README.md" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/blog/__init__.py" afterPath="$PROJECT_DIR$/nextCRM/blog/__init__.py" />
       <change beforePath="$PROJECT_DIR$/nextCRM/blog/settings.py" afterPath="$PROJECT_DIR$/nextCRM/blog/settings.py" />
       <change beforePath="$PROJECT_DIR$/nextCRM/blog/urls.py" afterPath="$PROJECT_DIR$/nextCRM/blog/urls.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/blog/wsgi.py" afterPath="$PROJECT_DIR$/nextCRM/blog/wsgi.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/__init__.py" afterPath="$PROJECT_DIR$/nextCRM/login/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/admin.py" afterPath="$PROJECT_DIR$/nextCRM/login/admin.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/apps.py" afterPath="$PROJECT_DIR$/nextCRM/login/apps.py" />
       <change beforePath="$PROJECT_DIR$/nextCRM/login/context_processors.py" afterPath="$PROJECT_DIR$/nextCRM/login/context_processors.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/forms.py" afterPath="$PROJECT_DIR$/nextCRM/login/forms.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/media/profile_image/image.jpg" afterPath="$PROJECT_DIR$/nextCRM/login/media/profile_image/image.jpg" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/media/profile_image/pepperoni_pizza2.jpg" afterPath="$PROJECT_DIR$/nextCRM/login/media/profile_image/pepperoni_pizza2.jpg" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0001_initial.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0002_post_date.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0002_post_date.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0003_auto_20171130_1526.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0003_auto_20171130_1526.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0004_friend.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0004_friend.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0005_friend_current_user.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0005_friend_current_user.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0006_post_location.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0006_post_location.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0007_post_phone_number.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0007_post_phone_number.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0008_auto_20171207_1001.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0008_auto_20171207_1001.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0009_auto_20171207_1004.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0009_auto_20171207_1004.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0010_auto_20171207_1005.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0010_auto_20171207_1005.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0011_auto_20171207_1006.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0011_auto_20171207_1006.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0012_post_comment.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0012_post_comment.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0013_remove_post_phone_number.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0013_remove_post_phone_number.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0014_auto_20171207_1037.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0014_auto_20171207_1037.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0015_comment.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0015_comment.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0016_auto_20171207_1305.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0016_auto_20171207_1305.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0017_remove_comment_author.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0017_remove_comment_author.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0018_comment_post.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0018_comment_post.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0019_auto_20171207_1408.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0019_auto_20171207_1408.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0020_auto_20171207_1411.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0020_auto_20171207_1411.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0021_auto_20171207_1412.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0021_auto_20171207_1412.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0022_auto_20171207_1414.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0022_auto_20171207_1414.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0023_auto_20171208_0952.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0023_auto_20171208_0952.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0024_auto_20171208_0953.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0024_auto_20171208_0953.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/0025_post_image.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/0025_post_image.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/migrations/__init__.py" afterPath="$PROJECT_DIR$/nextCRM/login/migrations/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/models.py" afterPath="$PROJECT_DIR$/nextCRM/login/models.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/tests.py" afterPath="$PROJECT_DIR$/nextCRM/login/tests.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/login/views.py" afterPath="$PROJECT_DIR$/nextCRM/login/views.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/manage.py" afterPath="$PROJECT_DIR$/nextCRM/manage.py" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/css/base.css" afterPath="$PROJECT_DIR$/nextCRM/static/css/base.css" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/css/sb-admin.css" afterPath="$PROJECT_DIR$/nextCRM/static/css/sb-admin.css" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/images/Thumbs.db" afterPath="$PROJECT_DIR$/nextCRM/static/images/Thumbs.db" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/images/city-wp.jpg" afterPath="$PROJECT_DIR$/nextCRM/static/images/city-wp.jpg" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/images/company-bg.jpg" afterPath="$PROJECT_DIR$/nextCRM/static/images/company-bg.jpg" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/images/crm-wp.jpg" afterPath="$PROJECT_DIR$/nextCRM/static/images/crm-wp.jpg" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/images/empty.png" afterPath="$PROJECT_DIR$/nextCRM/static/images/empty.png" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/nextCRM/static/js/bootstrap.min.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/js/sb-admin-charts.js" afterPath="$PROJECT_DIR$/nextCRM/static/js/sb-admin-charts.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/js/sb-admin-charts.min.js" afterPath="$PROJECT_DIR$/nextCRM/static/js/sb-admin-charts.min.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/js/sb-admin-datatables.js" afterPath="$PROJECT_DIR$/nextCRM/static/js/sb-admin-datatables.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/js/sb-admin-datatables.min.js" afterPath="$PROJECT_DIR$/nextCRM/static/js/sb-admin-datatables.min.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/js/sb-admin.js" afterPath="$PROJECT_DIR$/nextCRM/static/js/sb-admin.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/js/sb-admin.min.js" afterPath="$PROJECT_DIR$/nextCRM/static/js/sb-admin.min.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/js/script.js" afterPath="$PROJECT_DIR$/nextCRM/static/js/script.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/css/bootstrap-grid.css" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/css/bootstrap-grid.css" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/css/bootstrap-grid.min.css" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/css/bootstrap-grid.min.css" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/css/bootstrap-reboot.css" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/css/bootstrap-reboot.css" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/css/bootstrap-reboot.min.css" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/css/bootstrap-reboot.min.css" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/css/bootstrap.css" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/css/bootstrap.css" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/css/bootstrap.min.css" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/js/bootstrap.bundle.js" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/js/bootstrap.bundle.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/js/bootstrap.bundle.min.js" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/js/bootstrap.bundle.min.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/js/bootstrap.js" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/js/bootstrap.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/bootstrap/js/bootstrap.min.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/chart.js/Chart.bundle.js" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/chart.js/Chart.bundle.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/chart.js/Chart.bundle.min.js" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/chart.js/Chart.bundle.min.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/chart.js/Chart.js" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/chart.js/Chart.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/chart.js/Chart.min.js" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/chart.js/Chart.min.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/datatables/dataTables.bootstrap4.css" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/datatables/dataTables.bootstrap4.css" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/datatables/dataTables.bootstrap4.js" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/datatables/dataTables.bootstrap4.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/datatables/jquery.dataTables.js" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/datatables/jquery.dataTables.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/css/font-awesome.css" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/css/font-awesome.css" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/css/font-awesome.min.css" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/fonts/FontAwesome.otf" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/fonts/fontawesome-webfont.eot" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/fonts/fontawesome-webfont.svg" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/fonts/fontawesome-webfont.ttf" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/fonts/fontawesome-webfont.woff" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/fonts/fontawesome-webfont.woff2" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/fonts/fontawesome-webfont.woff2" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/animated.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/animated.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/bordered-pulled.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/core.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/core.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/fixed-width.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/fixed-width.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/font-awesome.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/font-awesome.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/icons.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/icons.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/larger.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/larger.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/list.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/list.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/mixins.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/mixins.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/path.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/path.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/rotated-flipped.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/rotated-flipped.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/screen-reader.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/screen-reader.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/stacked.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/stacked.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/variables.less" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/less/variables.less" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_animated.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_animated.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_bordered-pulled.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_core.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_core.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_fixed-width.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_fixed-width.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_icons.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_icons.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_larger.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_larger.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_list.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_list.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_mixins.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_mixins.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_path.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_path.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_rotated-flipped.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_rotated-flipped.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_screen-reader.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_screen-reader.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_stacked.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_stacked.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_variables.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/_variables.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/font-awesome/scss/font-awesome.scss" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/jquery/jquery.js" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/jquery/jquery.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/static/vendor/jquery/jquery.min.js" afterPath="$PROJECT_DIR$/nextCRM/static/vendor/jquery/jquery.min.js" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/author_confirm_delete.html" afterPath="$PROJECT_DIR$/nextCRM/templates/author_confirm_delete.html" />
       <change beforePath="$PROJECT_DIR$/nextCRM/templates/base.html" afterPath="$PROJECT_DIR$/nextCRM/templates/base.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/change_password.html" afterPath="$PROJECT_DIR$/nextCRM/templates/change_password.html" />
       <change beforePath="$PROJECT_DIR$/nextCRM/templates/companies.html" afterPath="$PROJECT_DIR$/nextCRM/templates/companies.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/company_confirm_delete.html" afterPath="$PROJECT_DIR$/nextCRM/templates/company_confirm_delete.html" />
       <change beforePath="$PROJECT_DIR$/nextCRM/templates/company_details.html" afterPath="$PROJECT_DIR$/nextCRM/templates/company_details.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/company_form.html" afterPath="$PROJECT_DIR$/nextCRM/templates/company_form.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/company_update.html" afterPath="$PROJECT_DIR$/nextCRM/templates/company_update.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/edit_profile.html" afterPath="$PROJECT_DIR$/nextCRM/templates/edit_profile.html" />
       <change beforePath="$PROJECT_DIR$/nextCRM/templates/home.html" afterPath="$PROJECT_DIR$/nextCRM/templates/home.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/registration/login.html" afterPath="$PROJECT_DIR$/nextCRM/templates/registration/login.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/registration/password_reset_complete.html" afterPath="$PROJECT_DIR$/nextCRM/templates/registration/password_reset_complete.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/registration/password_reset_confirm.html" afterPath="$PROJECT_DIR$/nextCRM/templates/registration/password_reset_confirm.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/registration/password_reset_done.html" afterPath="$PROJECT_DIR$/nextCRM/templates/registration/password_reset_done.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/registration/password_reset_email.html" afterPath="$PROJECT_DIR$/nextCRM/templates/registration/password_reset_email.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/registration/password_reset_subject.txt" afterPath="$PROJECT_DIR$/nextCRM/templates/registration/password_reset_subject.txt" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/registration/register.html" afterPath="$PROJECT_DIR$/nextCRM/templates/registration/register.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/registration/success.html" afterPath="$PROJECT_DIR$/nextCRM/templates/registration/success.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/test.html" afterPath="$PROJECT_DIR$/nextCRM/templates/test.html" />
+      <change beforePath="$PROJECT_DIR$/nextCRM/templates/user_update.html" afterPath="$PROJECT_DIR$/nextCRM/templates/user_update.html" />
       <change beforePath="$PROJECT_DIR$/nextCRM/templates/users.html" afterPath="$PROJECT_DIR$/nextCRM/templates/users.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,11 +150,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="users.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="users.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nextCRM/templates/users.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="58" column="38" lean-forward="true" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+            <state relative-caret-position="105">
+              <caret line="52" column="37" lean-forward="false" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_comment.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nextCRM/templates/add_comment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -95,11 +231,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="273" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="274" />
     <option name="y" value="77" />
-    <option name="width" value="909" />
-    <option name="height" value="644" />
+    <option name="width" value="901" />
+    <option name="height" value="640" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -131,14 +267,20 @@
             </path>
             <path>
               <item name="myCRM_1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="myCRM_1" type="462c0819:PsiDirectoryNode" />
+              <item name="nextCRM" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="myCRM_1" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -201,19 +343,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1368" height="741" extended-state="6" />
+    <frame x="274" y="77" width="901" height="640" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18763961" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28767124" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23014587" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2751938" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -257,13 +399,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/nextCRM/static/css/sb-admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nextCRM/templates/registration/password_reset_confirm.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -451,7 +586,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
           <caret line="177" column="74" lean-forward="false" selection-start-line="177" selection-start-column="74" selection-end-line="177" selection-end-column="74" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -459,7 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -467,7 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
           <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="97" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -475,7 +607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="113" column="8" lean-forward="false" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -483,7 +614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="32" column="68" lean-forward="false" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -491,7 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -499,7 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -507,7 +635,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
           <caret line="425" column="8" lean-forward="false" selection-start-line="425" selection-start-column="8" selection-end-line="425" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -515,23 +642,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="24" column="42" lean-forward="false" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nextCRM/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/nextCRM/templates/index.html" />
     <entry file="file://$PROJECT_DIR$/nextCRM/login/migrations/0025_post_image.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -539,7 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="16" column="67" lean-forward="false" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -547,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-377">
           <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -565,7 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -573,7 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="39" column="38" lean-forward="false" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -581,7 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -589,7 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="28" column="44" lean-forward="false" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -597,7 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="77">
           <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="198" selection-end-column="89" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -605,7 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -613,7 +723,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="83" column="23" lean-forward="true" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -621,14 +730,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nextCRM/templates/users.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="58" column="38" lean-forward="true" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+        <state relative-caret-position="105">
+          <caret line="52" column="37" lean-forward="false" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nextCRM/templates/add_comment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
           <folding />
         </state>
       </provider>

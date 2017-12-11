@@ -4,18 +4,27 @@
 {% block head %}User Registration{% endblock %}
 {% block content %}
 
-        <section>
-            <div class="container">
-                <div class="col-6 col-offspan-2">
-                    <h1>Register new user:</h1>
-                <form method="post" class="post_method" action=".">{% csrf_token %}
-                    <table border="0">
-                            {{ form|crispy }}
-                            <button class="btn btn-lg btn-success" type="submit" value="Register">Register</button>
-                    </table>
-                </form>
-                </div>
-        </section>
+<section>
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Users</li>
+            <li class="breadcrumb-item active">Register</li>
+        </ol>
+        <div class="col-6 col-offspan-2">
+            <h1>Register new user:</h1>
+            <form method="post" class="post_method" action=".">{% csrf_token %}
+                <table border="0">
+                    {{ form|crispy }}
+                        <button class="btn btn-lg btn-success" type="submit" value="Register">Register</button>
+                </table>
+            </form>
+        </div>
+    </div>
+</section>
 
 
 {% endblock %}

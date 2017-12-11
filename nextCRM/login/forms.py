@@ -1,11 +1,9 @@
 import re
 from django import forms
-from login.models import Post
+from login.models import Post, CompanyComment
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 from django.utils.translation import ugettext_lazy as _
-from login.models import Comment
-
 
 
 class RegistrationForm(forms.Form):
@@ -62,6 +60,7 @@ class EditCompanyForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
+    #meta gives option for subclass
     class Meta:
-        model = Comment
-        fields = ('content',)
+        model = CompanyComment
+        fields = ('body',)

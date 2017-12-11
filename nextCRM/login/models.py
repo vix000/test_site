@@ -14,24 +14,10 @@ class Post(models.Model):
 	user = models.ForeignKey(User)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
-	image = models.ImageField(upload_to='profile_image', blank=True)
+	# image = models.ImageField(upload_to='profile_image', blank=True)
 
 	def __str__(self):
-		return self.post
-
-
-class Comment(models.Model):
-	class Meta:
-		db_table = "comments"
-
-	post_id = models.ForeignKey(Post, default=Post, null=True)
-	author_id = models.ForeignKey(User, default=User, null=True)
-	content = models.TextField(default='')
-
-	def __str__(self):
-		return self.content[0:200]
-
-
+		return self.Post
 
 
 class Friend(models.Model):
@@ -51,3 +37,20 @@ class Friend(models.Model):
 			current_user=current_user
 			)
 		friend.users.remove(new_friend)
+
+
+
+class CompanyComment(models.Model):
+    post = models.ForeignKey(Post, related_name='comments')
+    user = models.CharField(max_length=250)
+    email = models.EmailField()
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default = False)
+
+    def approved(self):
+        self.approved = True
+        self.save()
+
+    def __str__(self):
+        return self.user
