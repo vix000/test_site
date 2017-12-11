@@ -39,7 +39,7 @@
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
+            <i class="fa fa-fw fa-star"></i>
             <span class="nav-link-text">Companies</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents">
@@ -52,9 +52,22 @@
           </ul>
         </li>
       {% if not request.user.is_superuser %}
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents6" data-parent="#exampleAccordion6">
+            <i class="fa fa-fw fa-phone"></i>
+            <span class="nav-link-text">Meetings</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents6">
+            <li>
+              <a href="{% url 'my_meetings' pk=user.pk %}">My meetings</a>
+            </li>
+            <li>
+              <a href="{% url 'add_meeting' %}">Add meeting</a>
+            </li>
+          </ul>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion2">
-            <i class="fa fa-fw fa-wrench"></i>
+            <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">User</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents2">
@@ -153,7 +166,7 @@
         </div>
       </div>
     </div>
-      					{% block menu %}{% endblock %}
+                      {% block menu %}{% endblock %}
 					{% block content %}{% endblock %}
 
   </div>

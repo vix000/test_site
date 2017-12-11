@@ -4,8 +4,9 @@ from login.forms import *
 
 
 from django.db import models
+from django.contrib import messages
 from django.views.generic import ListView, DetailView, CreateView
-from login.models import Post, Friend, CompanyComment
+from login.models import Post, Friend, CompanyComment, Meeting
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, UpdateView, CreateView
 from .forms import CompaniesForm, CommentForm
@@ -14,8 +15,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
-from django.contrib.auth import logout
-from django.contrib.auth import update_session_auth_hash # to remain logged in after changing password
+from django.contrib.auth import logout, update_session_auth_hash # to remain logged in after changing password
 from django.utils import timezone
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
@@ -173,11 +173,21 @@ class DeleteCompany(LoginRequiredMixin, DeleteView):
     template_name = 'company_confirm_delete.html'
     success_url = reverse_lazy('companies')
 
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        request.session['name'] = self.object.post
+        message = request.session['name'] + ' deleted successfully'
+        messages.success(self.request, message)
+        return super(DeleteCompany, self).delete(request, *args, **kwargs)
+
+
+
+
 class UpdateCompany(LoginRequiredMixin, UpdateView):
     model = Post
-    fields = '__all__'
+    fields = ('post', 'location', 'info', 'image',)
     template_name = 'company_update.html'
-    succes_url = reverse_lazy('companies')
+    success_url = reverse_lazy('companies')
 
 
 class CompanyAdd(LoginRequiredMixin, CreateView):
@@ -213,5 +223,36 @@ def add_comment(request, pk):
     context = {'form': form}
     return render(request, template, context)
 
+
+
+class MeetingAdd(LoginRequiredMixin, CreateView):
+    form_class = MeetingForm
+    template_name = 'meeting_form.html'
+    success_url = reverse_lazy('meetings')
+
+class MeetingView(LoginRequiredMixin, ListView):
+    template_name = 'my_meetings.html'
+
+    def get(self, request):
+        form = MeetingForm()
+        meetings = Meeting.objects.filter(author=request.user)
+
+        args = {'form': form, 'meetings': meetings}
+
+        return render(request, self.template_name, args)
+
+    def post(self, request):
+        form = MeetingForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            text = form.cleaned_data['post']
+            form = MeetingForm()
+
+        return redirect('/meetings')
+
+        args = {'form': form, 'text': text}
+        return render(request, self.template_name, args)
 
 

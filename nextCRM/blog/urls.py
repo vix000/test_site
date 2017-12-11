@@ -49,4 +49,7 @@ urlpatterns = [
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         auth_views.password_reset_confirm, name='password_reset_confirm'),
     url(r'^reset/done/$', auth_views.password_reset_complete, name='password_reset_'),
+    url(r'meetings/add_meeting/$', myapp_views.MeetingAdd.as_view(), name='add_meeting'),
+    url(r'meetings/$', myapp_views.MeetingView.as_view(), name='meetings'),
+    url(r'meetings/(?P<pk>\d+)/my_meetings/$', myapp_views.MeetingView.as_view(), name='my_meetings'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

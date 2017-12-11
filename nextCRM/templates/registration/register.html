@@ -11,10 +11,10 @@
             <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Users</li>
+            <li class="breadcrumb-item"><a href="{% url 'view_profile' %}">Users</a></li>
             <li class="breadcrumb-item active">Register</li>
         </ol>
-        <div class="col-6 col-offspan-2">
+        <div class="col-lg-6 col-lg-offspan-3">
             <h1>Register new user:</h1>
             <form method="post" class="post_method" action=".">{% csrf_token %}
                 <table border="0">

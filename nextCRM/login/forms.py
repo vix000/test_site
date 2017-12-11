@@ -1,6 +1,6 @@
 import re
 from django import forms
-from login.models import Post, CompanyComment
+from login.models import Post, CompanyComment, Meeting
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 from django.utils.translation import ugettext_lazy as _
@@ -55,7 +55,7 @@ class EditCompanyForm(forms.ModelForm):
     #fill or exclude = in fill gives selected, in exclude excludes selected
     class Meta: #it specifies the metadata for the form itself
         model = Post
-        fields = '__all__'
+        exclude = ('user',)
 
 
 
@@ -64,3 +64,9 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = CompanyComment
         fields = ('body',)
+
+
+class MeetingForm(forms.ModelForm):
+    class Meta:
+        model = Meeting
+        exclude = ('author',)

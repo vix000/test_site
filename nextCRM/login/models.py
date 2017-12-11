@@ -14,10 +14,10 @@ class Post(models.Model):
 	user = models.ForeignKey(User)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
-	# image = models.ImageField(upload_to='profile_image', blank=True)
+	image = models.ImageField(upload_to='profile_image', blank=True, default=None)
 
 	def __str__(self):
-		return self.Post
+		return self.post
 
 
 class Friend(models.Model):
@@ -54,3 +54,15 @@ class CompanyComment(models.Model):
 
     def __str__(self):
         return self.user
+
+
+
+class Meeting(models.Model):
+	title = models.CharField(max_length=100)
+	company_name = models.ForeignKey(Post)
+	meeting_date = models.DateTimeField()
+	details = models.TextField(max_length=250)
+	created = models.DateTimeField(auto_now_add=True)
+	author = models.ForeignKey(User, null=True)
+	def __str__(self):
+		return self.title

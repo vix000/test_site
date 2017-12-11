@@ -25,65 +25,36 @@
         <li class="breadcrumb-item">
           <a href="{% url 'home' %}">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Companies</li>
+        <li class="breadcrumb-item active">My meetings</li>
       </ol>
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-            {% if messages %}
-  <ul class="messages">
-    {% for message in messages %}
-      <li class="{{ message.tags }}">{{ message }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
-
             <header>
- 			    <h1>Companies</h1>
+ 			    <h1>My meetings</h1>
  		    </header>
 
         <table cellspacing="1" class="table table-striped table-bordered">
       <thead>
         <tr>
           <th>#</th>
-          <th>Name</th>
-          <th>Location</th>
-          <td>Added by</td>
-            <td>Created</td>
-          <th>Actions</th>
+          <th>Title</th>
+          <th>With</th>
+          <th>When</th>
           <th>Details</th>
+
         </tr>
       </thead>
       <tbody>
 
-{% for company in posts %}
+{% for meeting in meetings %}
         <tr>
           <td>{{ forloop.counter }}</td>
-          <td>{{ company.post }}</td>
-            <td>{{ company.location }}</td>
-            <td>{{ request.user }}</td>
-            <td>{{ company.created }}</td>
-          <td>
+            <td>{{ meeting.title }}</td>
+          <td>{{ meeting.company_name }}</td>
+            <td>{{ meeting.meeting_date}}</td>
+            <td>{{ meeting.details }}</td>
 
-                <a class="socialLink" href="{% url 'edit_company' pk=company.pk %}">
-                <button class="btn btn-sm btn-info">
-                Edit
-                </button>
-                </a>
-
-                <a class="socialLink" href="{% url 'delete_company' pk=company.pk %}">
-                <button class="btn btn-sm btn-danger">
-                Delete
-                </button>
-                </a>
-          </td>
-            <td>
-                <a class="socialLink" href="{% url 'company_details' pk=company.pk %}">
-                <button class="btn btn-sm btn-info">
-                Show details
-                </button>
-                </a>
-            </td>
         </tr>
 {% endfor %}
       </tbody>
@@ -91,7 +62,6 @@
 </div>
         </div>
       </div>
-
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

@@ -14,11 +14,12 @@
 		$(document).ready(function () {
 			$('table').DataTable({
 				"pagingType": "full_numbers",
-				"searching": false,
+				"searching": true,
 				"lengthMenu": [5, 10, 15, 25, 50],
 				responsive: true
 			});
 		});
+
 	</script>
 {% endblock %}
 
@@ -27,7 +28,7 @@
             <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="{% url 'home' %}">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Users</li>
       </ol>
@@ -38,32 +39,27 @@
  		    </header>
 
 		    <table cellspacing="1" class="table table-striped table-bordered">
-      <thead class="thead-light">
+      <thead>
         <tr>
           <th>#</th>
           <th>Username</th>
-			<th>E-mail address</th>
+            <th>E-mail address</th>
+            <th>First name</th>
+            <th>Last name</th>
 		{% if request.user.is_superuser %}
           <th>Actions</th>
 			{% endif %}
         </tr>
       </thead>
       <tbody>
-               <form method="get" class="form-inline my-2 my-lg-0 mr-lg-2">
-            <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search for...">
-              <span class="input-group-btn">
-                <button class="btn btn-primary" type="submit">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-          </form>
+
 {% for user in users %}
         <tr>
           <td>{{ forloop.counter }}</td>
           <td>{{ user.username }}</td>
-          <td>{{ user.email }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.first_name }}</td>
+          <td>{{ user.last_name }}</td>
 			{% if request.user.is_superuser %}
 			<td>
 				<a href="{% url 'update_user' pk=user.pk %}"><button class="btn btn-sm btn-default">Edit</button></a>
