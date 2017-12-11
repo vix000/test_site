@@ -69,4 +69,4 @@ class CommentForm(forms.ModelForm):
 class MeetingForm(forms.ModelForm):
     class Meta:
         model = Meeting
-        exclude = ('author',)
+        fields = '__all__'

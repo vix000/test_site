@@ -47,7 +47,7 @@ def register(request):
     'form': form
     }
 
-    return render(request, 'registration/register.html' ,variables)
+    return render(request, 'registration/register.html', variables)
 
 def register_success(request):
     return render(request,
@@ -63,10 +63,32 @@ def currentUsers(request):
 
 @login_required
 def home(request):
-    return render(request,
-    'home.html',
-    { 'user': request.user }
-    )
+    messages = ['Beautiful is better than ugly.',
+                'Explicit is better than implicit.',
+                'Simple is better than complex.',
+                'Complex is better than complicated.',
+                'Flat is better than nested.',
+                'Sparse is better than dense.',
+                'Readability counts.',
+                "Special cases aren't special enough to break the rules.",
+                'Although practicality beats purity.',
+                'Errors should never pass silently.',
+                'Unless explicitly silenced.',
+                'In the face of ambiguity, refuse the temptation to guess.',
+                'There should be one-- and preferably only one --obvious way to do it.',
+                "Although that way may not be obvious at first unless you're Dutch.",
+                "Now is better than never.",
+                'Although never is often better than *right* now.'
+                "If the implementation is hard to explain, it's a bad idea.",
+                "If the implementation is easy to explain, it may be a good idea.",
+                "Namespaces are one honking great idea -- let's do more of those!",
+                ]
+    template_name = 'home.html'
+    args = {
+        'messages': messages,
+        'user': request.user
+    }
+    return render(request,template_name, args)
 
 @login_required
 def view_profile(request, pk=None):
@@ -256,3 +278,10 @@ class MeetingView(LoginRequiredMixin, ListView):
         return render(request, self.template_name, args)
 
 
+def random_quote(request):
+    my_strings = ['string1', 'string2',]
+    template_name = 'home.html'
+    args = {
+        'my_strings': my_strings
+    }
+    return render(request, template_name, args)
