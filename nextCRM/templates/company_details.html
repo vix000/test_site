@@ -24,7 +24,10 @@
             <h1 class="companyTitle">Details of company {{ post.post }}:</h1>
                 <div class="col-md-6">
                   <p>Company logo:</p>
-                  <img src="{{ post.image.url }}" width="150" alt="Company logo">
+                  {% if post.image %}
+                   <img src="{{ post.image.url }}" width="150" alt="Company logo">
+                  {% endif %}
+
                   <p>Location: {{ post.location }}</p>
                   <p>Added by: {{ post.user }}</p>
                   <p>Created: {{post.created }}</p>

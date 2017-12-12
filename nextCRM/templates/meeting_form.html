@@ -11,11 +11,16 @@
         <li class="breadcrumb-item"><a href="{% url 'meetings' %}">Meetings</a></li>
 		<li class="breadcrumb-item active">Add meeting</li>
     </ol>
-<div class="container">
-	<h1>Add new meeting</h1>
-	<form method='POST'>{% csrf_token %}
-		{{ form|crispy }}
-		<button type='submit'>Submit</button>
-	</form>
+
+
+	<div class="row">
+		<div class="col-lg-3 col-centered text-center">
+					<h1>Add new meeting</h1>
+
+		<form method='POST'  class="text-center">{% csrf_token %}
+			{{ form|crispy }}
+			<button class="btn btn-md btn-success" type='submit'>Submit</button>
+		</form>
+		</div>
 	</div>
 {% endblock %}

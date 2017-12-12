@@ -27,7 +27,14 @@
         </li>
         <li class="breadcrumb-item active">My meetings</li>
       </ol>
-    <div class="container-fluid">
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    <div class="container-fluid col">
       <div class="row">
         <div class="col-12">
             <header>
@@ -42,11 +49,9 @@
           <th>With</th>
           <th>When</th>
           <th>Details</th>
-
         </tr>
       </thead>
       <tbody>
-
 {% for meeting in meetings %}
         <tr>
           <td>{{ forloop.counter }}</td>

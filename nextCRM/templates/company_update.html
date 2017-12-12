@@ -2,21 +2,20 @@
 {% load crispy_forms_tags %}
 
 
-
-{% csrf_token %}
-
 {% block content %}
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+    <a href="{% url 'home' %}">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item"><a href="{% url 'companies' %}">Companies</a></li>
+    <li class="breadcrumb-item active">Edit</li>
+</ol>
+
+
 <section>
-    <div class="container-fluid">
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-            <a href="{% url 'home' %}">Dashboard</a>
-            </li>
-            <li class="breadcrumb-item"><a href="{% url 'companies' %}">Companies</a></li>
-            <li class="breadcrumb-item active">Edit</li>
-        </ol>
-        <div class="col">
+    <div class="row">
+        <div class="col-lg-4 col-centered">
             <h1>Edit company {{ post.post }}</h1>
             <form method="post" class="post_method" action=".">{% csrf_token %}
                 <table border="0">

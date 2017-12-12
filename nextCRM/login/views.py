@@ -11,6 +11,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, UpdateView, CreateView
 from .forms import CompaniesForm, CommentForm
 from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
@@ -177,17 +178,19 @@ def change_friends(request, operation, pk):
     return redirect('/users')
 
 
-class DeleteUser(LoginRequiredMixin, DeleteView):
+class DeleteUser(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = User
     template_name = 'author_confirm_delete.html'
     success_url = reverse_lazy('view_profile')
+    success_message = 'Success!'
 
 
-class UpdateUser(LoginRequiredMixin, UpdateView):
+class UpdateUser(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = User
     fields = '__all__'
     template_name = 'user_update.html'
     success_url = reverse_lazy('view_profile')
+    success_message = 'Success!'
 
 
 class DeleteCompany(LoginRequiredMixin, DeleteView):
@@ -203,19 +206,19 @@ class DeleteCompany(LoginRequiredMixin, DeleteView):
         return super(DeleteCompany, self).delete(request, *args, **kwargs)
 
 
-
-
-class UpdateCompany(LoginRequiredMixin, UpdateView):
+class UpdateCompany(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Post
-    fields = ('post', 'location', 'info', 'image',)
+    fields = ('post', 'category', 'location', 'info', 'image',)
     template_name = 'company_update.html'
     success_url = reverse_lazy('companies')
+    success_message = "%(post)s was updated successfully"
 
 
-class CompanyAdd(LoginRequiredMixin, CreateView):
-    form_class = CompaniesForm
-    template_name = 'company_form.html'
+class CompanyAdd(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+    model = Post
+    template_name = 'companies.html'
     success_url = reverse_lazy('companies')
+    success_message = "%(post)s was created successfully"
 
 
 class CompanyDetail(LoginRequiredMixin, DetailView):
@@ -247,10 +250,11 @@ def add_comment(request, pk):
 
 
 
-class MeetingAdd(LoginRequiredMixin, CreateView):
+class MeetingAdd(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     form_class = MeetingForm
     template_name = 'meeting_form.html'
     success_url = reverse_lazy('meetings')
+    success_message = "%(title)s was created successfully"
 
 class MeetingView(LoginRequiredMixin, ListView):
     template_name = 'my_meetings.html'

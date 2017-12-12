@@ -14,7 +14,15 @@ class Post(models.Model):
 	user = models.ForeignKey(User)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
-	image = models.ImageField(upload_to='profile_image', blank=True, default=None)
+	categories = (
+		('Food', 'Food'),
+		('Transport', 'Transport'),
+		('IT', 'IT'),
+		('Logistics', 'Logistics'),
+		('Other', 'Other'),
+	)
+	category = models.CharField(max_length=9, choices=categories, blank=True)
+	image = models.ImageField(upload_to='profile_image', blank=True, null=True)
 
 	def __str__(self):
 		return self.post

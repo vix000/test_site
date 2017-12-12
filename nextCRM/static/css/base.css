@@ -349,3 +349,14 @@ footer.sticky-footer {
 .companyTitle {
     font-size: 48px;
 }
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+
+
+.breadcrumb a{
+   opacity: 1!important;
+}
