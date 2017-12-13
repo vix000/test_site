@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% load staticfiles %}
+{% csrf_token %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="{% url 'home' %}">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="{% url 'companies' %}">Companies</a>
+        </li>
+        <li class="breadcrumb-item active">Details</li>
+    </ol>
+
+    <section>
+        <div class="container">
+            <div class="card card-register mx-auto mt-5">
+                <div class="card-header"><h3>Details of company {{ post.post }}:</h3></div>
+                <div class="card-body">
+                    <form method="post" class="post_method" action=".">{% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <p><label>Location: </label>
+                                            {{ post.location }}</p>
+
+                                        <p><label>Created: </label>
+                                            {{ post.created }}</p>
+                                        <p><label>Last updated: </label>
+                                            {{ post.updated }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <p><label>Logo: </label>
+                                            {% if post.image %}
+                                            <img class="img-responsive img-thumbnail" src="{{ post.image.url }}"
+                                                 alt="Profile image">
+                                            {% else %}
+                                            <img class="img-responsive img-thumbnail"
+                                                 src="{% static 'images/no-image.png' %}">
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>About: </label>
+                                {{ post.info }}
+                            </div>
+                        </div>
+
+                        <a href="{% url 'add_comment' pk=post.pk %}"
+                        <button class="btn btn-block btn-primary">Comments ({{ post.comments.count }})</button>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% for comment in post.comments.all %}
+    <p>Added by {{ request.user }}, {{ comment.created }}</p>
+    <p>{{ comment.body }}</p>
+    {% empty %}
+    <p>No comments</p>
+    {% endfor %}
+
+
+    {% endblock %}
