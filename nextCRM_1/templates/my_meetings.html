@@ -106,7 +106,8 @@
           <th>Title</th>
           <th>With</th>
           <th>When</th>
-          <th>Details</th>
+          <th>Details
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -117,6 +118,13 @@
           <td>{{ meeting.company_name }}</td>
             <td>{{ meeting.meeting_date}}</td>
             <td>{{ meeting.details }}</td>
+            <td>
+            <a class="socialLink" href="#">
+                <button class="btn btn-sm btn-info">
+                    Delete
+                </button>
+            </a>
+        </td>
 
         </tr>
 {% endfor %}

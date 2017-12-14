@@ -1,17 +1,33 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-
-
+{% load widget_tweaks %}
 {% block content %}
-<div class="container">
-    <form action="" method="post">{% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-lg btn-success">Submit</button><br />
-                <div class="container">
-                    {% for comment in post_comments %}
-                        {{ comment.content }}, Added by: {{ user.username }}<br/>
-                    {% endfor %}
-                </div>
-    </form>
-</div>
+
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="{% url 'home' %}">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="{% url 'companies' %}">Companies</a>
+    </li>
+    <li class="breadcrumb-item active">Details</li>
+    <li class="breadcrumb-item active">Add comment</li>
+  </ol>
+
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Add comment</div>
+      <div class="card-body">
+        <form method="post" class="post_method" action=".">{% csrf_token %}
+          <div class="form-group">
+            <div class="form-row">
+                {% render_field form.body class="form-control" %}
+              </div>
+                <button class="btn btn-block btn-primary" type="submit" value="Register">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}

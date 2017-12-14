@@ -9,17 +9,7 @@
 {% block content %}
 
 {% block header %}
-<script>
-        $(document).ready(function () {
-            $('table').DataTable({
-                "pagingType": "full_numbers",
-                "searching": true,
-                "lengthMenu": [5, 10, 15, 25, 50],
-                responsive: true
-            });
-        });
 
-</script>
 {% endblock %}
 
 
@@ -46,7 +36,7 @@
         <div class="panel-body text-center">
             <div class="container">
                 <div class="card card-register mx-auto mt-5">
-                    <div class="card-header">Add new company </div>
+                    <div class="card-header">Add new company</div>
                     <div class="card-body">
                         <form method="post" class="post_method" action=".">{% csrf_token %}
                             <div class="form-group">
@@ -92,14 +82,14 @@
 </div>
 
 
-
 <header>
     <h1>Companies</h1>
 </header>
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    <li
+    {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
     {% endfor %}
 </ul>
 {% endif %}
@@ -134,11 +124,11 @@
                 </button>
             </a>
 
-            <a class="socialLink" href="{% url 'delete_company' pk=company.pk %}">
-                <button class="btn btn-sm btn-danger">
-                    Delete
-                </button>
-            </a>
+        <button type="button" align="left" class="btn btn-sm btn-danger deleteval" data-toggle="modal" data-target="#modelId"
+                value="{{company.pk}}">
+            Delete
+        </button>
+
         <td>
             <a class="socialLink" href="{% url 'company_details' pk=company.pk %}">
                 <button class="btn btn-sm btn-info">
@@ -150,17 +140,45 @@
     {% endfor %}
     </tbody>
 </table>
-<div class="row">
-    <div class="col-lg-6 col-centered">
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
 
 
+
+<!-- Delete messagebox Modal -->
+
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modelTitleId">Warning!</h4>
+            </div>
+            <div class="modal-body">
+                Delete this company?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <form method="get">
+                    <button type="submit" align="left" class="btn btn-danger deletebutton" name="companyDeleteButton">Yes
+                    </button>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
-</div>
+<script>
 
+      $('.deleteval').click( function(e){
+        var at = $(this).attr('value');
+        $('.deletebutton').val(at)
+        });
+
+        $(document).ready(function () {
+            $('table').DataTable({
+                "pagingType": "full_numbers",
+                "searching": true,
+                "lengthMenu": [5, 10, 15, 25, 50],
+                responsive: true
+            });
+        });
+</script>
 {% endblock %}

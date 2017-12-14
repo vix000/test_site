@@ -3,7 +3,8 @@
 from login.forms import *
 from django.db import models
 from django.contrib import messages
-from django.views.generic import ListView, DetailView, CreateView
+from django.urls import reverse
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from login.models import Post, Friend, CompanyComment, Meeting
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, UpdateView, CreateView
@@ -137,15 +138,31 @@ def change_password(request):
         args={'form': form}
         return render(request, 'change_password.html', args)
 
-class CompaniesView(LoginRequiredMixin, ListView):
+class CompaniesView(LoginRequiredMixin, SuccessMessageMixin, ListView, DeleteView):
     template_name = 'companies.html'
+    success_message = 'Company added successfully.'
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        request.session['name'] = self.object.post
+        message = request.session['name'] + ' deleted successfully.'
+        messages.success(self.request, message)
+        return super(CompaniesView, self).delete(request, *args, **kwargs)
 
     def get(self, request):
         form = CompaniesForm()
         posts = Post.objects.all().order_by('-created')
         users = User.objects.all()
-
         args = {'form': form, 'posts': posts, 'users': users}
+        success_message = 'User edited successfully.'
+
+        get = request.GET
+        if get and 'companyDeleteButton' in get:
+            try:
+                current_company = Post.objects.get(pk=get['companyDeleteButton'])
+                current_company.delete()
+            except:
+                pass
 
         return render(request, self.template_name, args)
 
@@ -157,8 +174,6 @@ class CompaniesView(LoginRequiredMixin, ListView):
             post.save()
             text = form.cleaned_data['post']
             form = CompaniesForm()
-            messages.success(request, message='Company created successfully.')
-
         return redirect('/companies')
 
         args = {'form': form, 'text': text}
@@ -202,10 +217,11 @@ class UpdateUser(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     success_message = 'User edited successfully.'
 
 
-class DeleteCompany(LoginRequiredMixin, DeleteView):
+class DeleteCompany(LoginRequiredMixin,SuccessMessageMixin, DeleteView):
     model = Post
     template_name = 'company_confirm_delete.html'
     success_url = reverse_lazy('companies')
+
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -242,6 +258,7 @@ def add_comment(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            comment.user = request.user
             comment.save()
             return redirect('company_details', pk=post.pk)
     else:
@@ -250,30 +267,20 @@ def add_comment(request, pk):
     context = {'form': form}
     return render(request, template, context)
 
-class CommentView(LoginRequiredMixin, SuccessMessageMixin, ListView):
-    template_name = 'add_comment.html'
+
+class DeleteComment(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = CompanyComment
+    template_name = 'comment_confirm_delete.html'
 
-    def get(self, request, pk):
-        form = CommentForm()
-        comments = CompanyComment.objects.all()
-        args = {'form': form, 'comments': comments}
-        return render(request, self.template_name, args)
+    def get_success_url(self, **kwargs):
+        return reverse_lazy("company_details", kwargs={'pk': self.object.post.id})
 
-    def post(self, request):
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-            return redirect('add_comment')
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
 
-        return redirect('/meetings')
-
-        args = {'form': form, 'text': text}
-        return render(request, self.template_name, args)
-
-
+        message = 'Comment deleted successfully.'
+        messages.success(self.request, message)
+        return super(DeleteComment, self).delete(request, *args, **kwargs)
 
 class MeetingAdd(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     form_class = MeetingForm

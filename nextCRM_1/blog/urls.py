@@ -40,6 +40,7 @@ urlpatterns = [
     url(r'^companies/$', myapp_views.CompanyDeleteView.as_view(), name='companies'),
     url(r'^connect/(?P<operation>.+)/(?P<pk>\d+)/$', myapp_views.change_friends, name='change_friends'),
     url(r'users/(?P<pk>\d+)/author_confirm_delete/', myapp_views.DeleteUser.as_view(), name='delete_user'),
+    url(r'^(?P<pk>\d+)/comment_confirm_delete/', myapp_views.DeleteComment.as_view(), name='delete_comment'),
     url(r'users/(?P<pk>\d+)/user_update/', myapp_views.UpdateUser.as_view(), name='update_user'),
     url(r'companies/(?P<pk>\d+)/company_confirm_delete/', myapp_views.DeleteCompany.as_view(), name='delete_company'),
     url(r'companies/(?P<pk>\d+)/company_update/', myapp_views.UpdateCompany.as_view(), name="edit_company"),

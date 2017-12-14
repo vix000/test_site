@@ -5,6 +5,171 @@
 {% csrf_token %}
 
 {% block content %}
+<style>
+
+        .nav .nav-tabs {
+            font-family: Arial;
+            color: blue;
+        }
+
+        .comment{
+            background-color: #646464;
+            color: #ffffff;
+            /* Top Right Bottom Left */
+            padding: 4% 6% 5% 4%;
+            font-family: Arial;
+            margin: 10px;
+            border: 2px solid rgb(199, 199, 199);
+            /* round border */
+            border-radius: 6px;
+        }
+
+        .comment .modal{
+            color: rgb(44, 44, 44);
+        }
+
+        .secondary {
+            background: none;
+            color: #d4e7ff;
+            padding-top: 8%;
+        }
+
+        .delete-form{
+            padding-top: 2%;
+            padding-left: 85%;
+        }
+
+        .comment-form{
+            margin: 10px;
+            padding-bottom: 30px;
+        }
+
+
+
+.panel-shadow {
+    box-shadow: 2px 2px 2px 2px #444444;
+}
+.panel-white {
+  border: 1px solid #dddddd;
+  margin-bottom: 15px;
+  width: 100%;
+}
+.panel-white  .panel-heading {
+  color: #333;
+  background-color: #fff;
+  border-color: #ddd;
+}
+.panel-white  .panel-footer {
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+.post .post-heading {
+  height: 95px;
+  padding: 20px 15px;
+}
+.post .post-heading .avatar {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin-right: 15px;
+}
+.post .post-heading .meta .title {
+  margin-bottom: 0;
+}
+.post .post-heading .meta .title a {
+  color: black;
+}
+.post .post-heading .meta .title a:hover {
+  color: #aaaaaa;
+}
+.post .post-heading .meta .time {
+  margin-top: 8px;
+  color: #999;
+}
+.post .post-image .image {
+  width: 100%;
+  height: auto;
+}
+.post .post-description {
+  padding: 15px;
+}
+.post .post-description p {
+  font-size: 14px;
+}
+.post .post-description .stats {
+  margin-top: 20px;
+}
+.post .post-description .stats .stat-item {
+  display: inline-block;
+  margin-right: 15px;
+}
+.post .post-description .stats .stat-item .icon {
+  margin-right: 8px;
+}
+.post .post-footer {
+  border-top: 1px solid #ddd;
+  padding: 15px;
+}
+.post .post-footer .input-group-addon a {
+  color: #454545;
+}
+.post .post-footer .comments-list {
+  padding: 0;
+  margin-top: 20px;
+  list-style-type: none;
+}
+.post .post-footer .comments-list .comment {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+}
+.post .post-footer .comments-list .comment .avatar {
+  width: 35px;
+  height: 35px;
+}
+.post .post-footer .comments-list .comment .comment-heading {
+  display: block;
+  width: 100%;
+}
+.post .post-footer .comments-list .comment .comment-heading .user {
+  font-size: 14px;
+  font-weight: bold;
+  display: inline;
+  margin-top: 0;
+  margin-right: 10px;
+}
+.post .post-footer .comments-list .comment .comment-heading .time {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 0;
+  display: inline;
+}
+.post .post-footer .comments-list .comment .comment-body {
+  margin-left: 50px;
+}
+.post .post-footer .comments-list .comment > .comments-list {
+  margin-left: 50px;
+}
+
+
+.commentDeleteLink {
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #888888;
+    transition: all 0.5s ease-in-out;
+}
+
+.commentDeleteLink:hover {
+    color: #000000;
+}
+
+
+
+    </style>
+
 <div class="container-fluid">
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
@@ -16,62 +181,216 @@
         </li>
         <li class="breadcrumb-item active">Details</li>
     </ol>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li
+    {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
-    <section>
-        <div class="container">
-            <div class="card card-register mx-auto mt-5">
-                <div class="card-header"><h3>Details of company {{ post.post }}:</h3></div>
-                <div class="card-body">
-                    <form method="post" class="post_method" action=".">{% csrf_token %}
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="form-row">
-                                        <p><label>Location: </label>
-                                            {{ post.location }}</p>
+    <div class="container-fluid">
 
-                                        <p><label>Created: </label>
-                                            {{ post.created }}</p>
-                                        <p><label>Last updated: </label>
-                                            {{ post.updated }}</p>
-                                    </div>
-                                </div>
+        <div class="tabs">
+
+            <div class="row">
+                <!-- Colorful tabs -->
+                <div class="col-xl-4 col-sm-6 mb-3">
+                    <div class="card text-white bg-primary o-hidden h-100" style="box-shadow: 2px 2px 2px 2px #444444;">
+                        <div class="card-body">
+                            <div class="card-body-icon" style="box-shadow: 2px 2px 2px 2px #444444;">
+                                <i class="fa fa-fw fa-user"></i>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="form-row">
-                                        <p><label>Logo: </label>
-                                            {% if post.image %}
-                                            <img class="img-responsive img-thumbnail" src="{{ post.image.url }}"
-                                                 alt="Profile image">
-                                            {% else %}
-                                            <img class="img-responsive img-thumbnail"
-                                                 src="{% static 'images/no-image.png' %}">
-                                            {% endif %}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <label>About: </label>
-                                {{ post.info }}
-                            </div>
+                            <div class="mr-5">Info</div>
                         </div>
-
-                        <a href="{% url 'add_comment' pk=post.pk %}"
-                        <button class="btn btn-block btn-primary">Comments ({{ post.comments.count }})</button>
+                        <a class="card-footer text-white clearfix small z-1" href="#about">
+                            <span class="float-left">Information about this company</span>
+                            <span class="float-right">
+                        <i class="fa fa-angle-right"></i>
+                    </span>
                         </a>
-                    </form>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-sm-6 mb-3">
+                    <div class="card text-white bg-success o-hidden h-100" style="box-shadow: 2px 2px 2px 2px #444444;">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-shopping-cart" style="box-shadow: 2px 2px 2px 2px #444444;"></i>
+                            </div>
+                            <div class="mr-5">Employees</div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="#orders">
+                            <span class="float-left">See the list of current employees</span>
+                            <span class="float-right">
+                        <i class="fa fa-angle-right"></i>
+                    </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6 mb-3">
+
+                    <div class="card text-white bg-danger o-hidden h-100" style="box-shadow: 2px 2px 2px 2px #444444;">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-comment" style="box-shadow: 2px 2px 2px 2px #444444;"></i>
+                            </div>
+                            <div class="mr-5">{{ post.comments.count }} Comments</div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="#comments">
+                            <span class="float-left">Check what others think</span>
+                            <span class="float-right">
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    {% for comment in post.comments.all %}
-    <p>Added by {{ request.user }}, {{ comment.created }}</p>
-    <p>{{ comment.body }}</p>
-    {% empty %}
-    <p>No comments</p>
-    {% endfor %}
+            <!-- Panels content -->
+            <div class="tab-content">
+                <div id="about" class="tab active">
+                    <br/>
+                    <div class="card mb-5">
+                        <div class="card-header"><i class="fa fa-home h1"></i> About:</div>
+
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-3 text-center">
+                                    <h3>Logo: </h3>
+                                    {% if post.image %}
+                                    <img class="img-responsive img-thumbnail" src="{{ post.image.url }}"
+                                         alt="Profile image">
+                                    {% else %}
+                                    <img class="img-responsive img-thumbnail"
+                                         src="{% static 'images/no-image.png' %}">
+                                    {% endif %}
+
+                                </div>
+                                <div class="col-6 text-center">
+                                    <h3>Info: </h3>
+                                    {{ post.info }}
+                                </div>
+                                <div class="col-3 text-center">
+                                    <h3>Details: </h3>
+                                    <p>Name: {{ post.post }}</p>
+                                    <p>Category: {{ post.category }}</p>
+                                    <p>Location: {{ post.location }}</p>
+                                    <p>This post was created at {{ post.created }}</p>
+                                    <p>Last update: {{ post.updated }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="orders" class="tab text-center">
+                    <a class="btn btn-success" href="#">Add
+                        employee</a>
+                    <div class="card mb-3 text-left">
+
+                        <div class="card-header">
+                            <i class="fa fa-table"></i> Employees:
+                        </div>
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="comments" class="tab text-center">
+                    <a class="btn btn-danger" href="{% url 'add_comment' pk=post.pk %}">Add
+                        comment</a>
+                    <div class="card mb-3 text-left">
+                        <div class="card-header">
+                            <i class="fa fa-comment"></i> Comments:
+                        </div>
 
 
-    {% endblock %}
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {% for comment in post.comments.all %}
+                                    <div class="commentWindow panel panel-white post panel-shadow">
+                                        <a class="commentDeleteLink"href="{% url 'delete_comment' pk=comment.pk %}">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </a>
+                                        <div class="post-heading">
+                                            <div class="pull-left image">
+                                                <img src="{% static 'images/149071.png' %}"
+                                                     class="img-circle avatar" alt="user profile image">
+                                            </div>
+                                            <div class="pull-left meta">
+                                                <div class="title h5">
+                                                    <b>{{ comment.user }}</b>
+                                                    made a post.
+                                                </div>
+                                                <h6 class="text-muted time">Created: {{ comment.created }}</h6>
+                                            </div>
+                                        </div>
+                                        <div class="post-description">
+                                            <p>{{ comment.body }}</p>
+
+                                            <div class="stats">
+                                                <a href="#" class="btn btn-default stat-item">
+                                                    <i class="fa fa-thumbs-up icon"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-default stat-item">
+                                                    <i class="fa fa-thumbs-down icon"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script>
+
+      $('.deleteval').click( function(e){
+        var at = $(this).attr('value');
+        $('.deletebutton').val(at)
+        });
+
+
+        jQuery(document).ready(function() {
+            //first show only about
+            jQuery('.tabs ' + '#about').show().siblings().hide();
+            jQuery('a').on('click', function(e)  {
+                var currentAttrValue = jQuery(this).attr('href');
+
+                // Show/Hide Tabs
+                jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+
+                // Change/remove current tab to active
+                jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+
+                e.preventDefault();
+                console.log('curr:'+currentAttrValue);
+            });
+
+            /*Need to activete all tables with class table*/
+            $('.table').DataTable();
+
+            //get id from button and pass it to message box
+            $('.deleteval').click( function(e){
+                var at = $(this).attr('value');
+                $('.deletebutton').val(at)
+                //console.log('click delete'+at+' '+deletebutton);
+            });
+
+        });
+
+
+
+
+                </script>
+                {% endblock %}
